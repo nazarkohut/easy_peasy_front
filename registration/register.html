@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+<div class="register-page">
+    <header class="header">
+        <nav class="header-nav">
+                <div class="logo-site-name">
+                    <a href="../logo_easy_peasy.jpg" class="logo-site-click">
+                    <img src="../logo_easy_peasy.jpg"
+                         alt="" title="logo" class="logo">
+                    <p class="site-name">asyPeasy</p>
+                    </a>
+                </div>
+
+            <input type="submit" class="header-button" value="Learning">
+            <input type="submit" class="header-button" value="Problems">
+            <input type="submit" class="header-button" value="Tests">
+        </nav>
+    </header>
+    <div class="form-wrapper">
+        <h3 class="form-header">Registration</h3>
+        <form class="register-form">
+            <label class="register-field">
+                <input type="email" name="email" placeholder="Email" class="register-input">
+            </label>
+            <label class="register-field">
+                <input type="text" name="username" placeholder="Username" class="register-input">
+            </label>
+            <label class="register-field">
+                <input type="text" name="firstname" placeholder="First name" class="first-last-name register-input">
+                <input type="text" name="lastname" placeholder="Last name" class="first-last-name register-input">
+            </label>
+            <label class="register-field">
+                <input type="password" name="password" placeholder="Password" required="required"
+                       class="register-input">
+            </label>
+            <label class="register-field">
+                <input type="password" name="confirm-password" placeholder="Confirm password" required="required"
+                       class="register-input">
+            </label>
+            <p class="form-text terms-condition">
+                By signing up you agree to our <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>
+            </p>
+            <button type="submit" class="submit-button">Sign Up</button>
+            <p class="form-text">
+                Have an account? <a href="../login/login.html">Sign In</a>.
+            </p>
+        </form>
+    </div>
+
+</div>
+<footer class="footer">
+    <nav class="footer-nav">
+        <a href="" class="footer-link">About</a>
+        <a href="" class="footer-link">Terms</a>
+        <a href="" class="footer-link">Privacy Policy</a>
+    </nav>
+</footer>
+</body>
+</html>
