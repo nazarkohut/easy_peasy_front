@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="register.css" type="text/css">
 </head>
 <body>
 <div class="register-page">
@@ -32,10 +32,15 @@
             <label class="register-field">
                 <input type="text" name="username" placeholder="Username" class="register-input">
             </label>
-            <label class="register-field">
-                <input type="text" name="firstname" placeholder="First name" class="first-last-name register-input">
-                <input type="text" name="lastname" placeholder="Last name" class="first-last-name register-input">
-            </label>
+            <div class="first-last-name-wrapper">
+                <label class="register-field first-last-name-label">
+                    <input type="text" name="firstname" placeholder="First name" class="first-last-name register-input">
+                </label>
+                <label class="register-field first-last-name-label">
+                    <input type="text" name="lastname" placeholder="Last name" class="first-last-name register-input">
+                </label>
+            </div>
+
             <label class="register-field">
                 <input type="password" name="password" placeholder="Password" required="required"
                        class="register-input">
