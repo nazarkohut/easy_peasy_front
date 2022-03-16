@@ -46,6 +46,12 @@ body {
   column-gap: 20px;
 }
 
+.header-button-wrapper{
+  display: flex;
+  row-gap: initial;
+  text-decoration: none;
+}
+
 .header-button {
   border-color: transparent;
   background-color: transparent;
@@ -93,7 +99,7 @@ body {
 
 .form-wrapper {
   background-color: $form-color;
-  height: 300px;
+  height: 375px;
   width: 375px;
   margin: 0 auto;
   transform: translateY(27vh);
@@ -104,7 +110,7 @@ body {
 .form-header {
   margin: 0;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 20px;
   font-family: $form-header-font;
   font-size: 20px;
 }
@@ -115,7 +121,7 @@ body {
   transition: 0.5s ease;
   width: 100px;
   height: 40px;
-  margin: 20px 0 6px 175px;
+  margin: 30px 0 6px 175px;
   border-color: transparent;
   color: $white;
   font-family: $submit-button-font;
@@ -128,7 +134,7 @@ body {
 }
 
 .form-text {
-  margin: 30px 0 30px 0;
+  margin: 40px 0 30px 0;
   font-family: $form-text-font;
   font-size: 14px;
 }
@@ -142,7 +148,7 @@ body {
   height: 35px;
   width: 275px;
   background-color: transparent;
-  margin-top: 10px;
+  margin-top: 30px;
   font-family: $register-input-font;
 
   &:focus {

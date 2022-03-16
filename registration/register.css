@@ -20,6 +20,11 @@ body {
   display: flex;
   column-gap: 20px; }
 
+.header-button-wrapper {
+  display: flex;
+  row-gap: initial;
+  text-decoration: none; }
+
 .header-button {
   border-color: transparent;
   background-color: transparent;
