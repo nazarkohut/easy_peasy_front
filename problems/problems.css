@@ -1,6 +1,9 @@
 body {
   margin: 0; }
 
+.header-nav-button-link {
+  color: black; }
+
 .header-nav {
   display: flex;
   column-gap: 20px;
@@ -13,17 +16,17 @@ body {
   right: 0;
   display: -webkit-box; }
 
-.header-button-wrapper {
+.header-nav-button-wrapper {
   display: flex;
   row-gap: initial;
   text-decoration: none; }
 
-.header-button {
+.header-nav-button {
   border-color: transparent;
   background-color: transparent;
   font-family: "Bookman Old Style", monospace;
   font-size: 20px; }
-  .header-button:hover {
+  .header-nav-button:hover {
     cursor: pointer;
     color: #3c3c46; }
 
@@ -45,25 +48,35 @@ body {
   height: 45px;
   width: 45px; }
 
-.problems-page {
-  height: 100vh; }
+.problem-list-parameters {
+  display: -webkit-box;
+  column-gap: 350px;
+  margin: 0 0 0 10px;
+  background-color: aliceblue; }
 
 .problem-list-wrapper {
   display: flex;
-  margin: 50vh 0 0 0; }
+  margin: 30vh 0 0 5vw;
+  border: 10px black; }
 
 .problem-list {
   list-style: none;
   border: 2px black;
-  row-gap: 10px; }
+  border-radius: 10px;
+  background: aliceblue;
+  width: 90vw;
+  padding: 0; }
 
 .problem-box {
-  width: 90vw;
-  margin: 10px 0 0 0;
   height: 50px;
-  border: 2px black solid;
+  border: 2px lightblue solid;
+  border-bottom: 1px;
   display: -webkit-box;
   column-gap: 30px; }
+  .problem-box:last-of-type {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    border-bottom: 2px; }
 
 .footer {
   display: flex;

@@ -37,13 +37,13 @@ body {
   display: -webkit-box;
 }
 
-.header-button-wrapper{
+.header-nav-button-wrapper{
   display: flex;
   row-gap: initial;
   text-decoration: none;
 }
 
-.header-button {
+.header-nav-button {
   border-color: transparent;
   background-color: transparent;
   font-family: $submit-button-font;
@@ -191,7 +191,7 @@ body {
     font-size: 20px;
   }
 
-  .header-button {
+  .header-nav-button {
     font-size: 14px;
   }
 
@@ -227,7 +227,7 @@ body {
     font-size: 16px;
   }
 
-  .header-button {
+  .header-nav-button {
     font-size: 14px;
   }
 
@@ -287,7 +287,7 @@ body {
     font-size: 14px;
   }
 
-  .header-button {
+  .header-nav-button {
     font-size: 12px;
   }
 
@@ -348,7 +348,7 @@ body {
     font-size: 10px;
   }
 
-  .header-button {
+  .header-nav-button {
     font-size: 8px;
   }
 
