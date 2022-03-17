@@ -1,0 +1,137 @@
+$white: #ffffff;
+$black: #000000;
+$header-button-hover-color: rgb(60, 60, 70);
+$form-color: #f8f8ff;
+$footer-color: rgba(61, 144, 206, 0.85);
+$register-input-focus-color: rgb(180, 210, 256);
+$header-color: rgb(242, 242, 242);
+$submit-button-hover-shadow-color: lightslategray;
+$submit-button-hover-color: rgb(102, 102, 255);
+$form-wrapper-shadow-color: gainsboro;
+$form-header-font: "Courier New", monospace;
+$submit-button-font: "Bookman Old Style", monospace;
+$form-text-font: "Dubai", monospace;
+$register-input-font: "Lucida Console", monospace;
+$footer-link-font: "Dubai Light", monospace;
+
+@mixin flex-mixin {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+}
+
+.header-nav-button-link{
+  color:black;
+}
+
+.header-nav {
+  display: flex;
+  column-gap: 20px;
+  background: $header-color;
+  height: 50px;
+  font-size: 30px;
+  padding: 10px 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+}
+
+.header-nav-button-wrapper {
+  display: flex;
+  row-gap: initial;
+  text-decoration: none;
+}
+
+.header-nav-button {
+  border-color: transparent;
+  background-color: transparent;
+  font-family: $submit-button-font;
+  font-size: 20px;
+
+  &:hover {
+    cursor: pointer;
+    color: $header-button-hover-color;
+  }
+}
+
+.site-name {
+  display: inline;
+}
+
+.logo-site-name {
+  @include flex-mixin;
+
+  a {
+    @include flex-mixin;
+    text-decoration: none;
+    color: $black;
+  }
+}
+
+.logo {
+  height: 45px;
+  width: 45px;
+}
+
+.problem-list-parameters{
+  display: -webkit-box;
+  column-gap: 350px;
+  margin: 0 0 0 10px;
+  background-color: aliceblue;
+}
+
+.problem-list-wrapper {
+  display: flex;
+  margin: 30vh 0 0 5vw;
+  border: 10px black;
+}
+
+.problem-list {
+  list-style: none;
+  border: 2px black;
+  border-radius: 10px;
+  background: aliceblue;
+  width: 90vw;
+  padding: 0;
+}
+
+.problem-box{
+  height: 50px;
+  border: 2px lightblue solid;
+  border-bottom: 1px;
+  display: -webkit-box;
+  column-gap: 30px;
+  &:last-of-type{
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    border-bottom: 2px;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background-color: $footer-color;
+}
+
+.footer-nav {
+  display: flex;
+  column-gap: 50px;
+  margin-left: 50px;
+}
+
+.footer-link {
+  font-size: 20px;
+  color: $white;
+  font-family: $footer-link-font;
+
+  &:hover {
+    text-decoration-color: #000000;
+  }
+}
