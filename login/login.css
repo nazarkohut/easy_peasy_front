@@ -18,12 +18,12 @@ body {
   row-gap: initial;
   text-decoration: none; }
 
-.header-button {
+.header-nav-button {
   border-color: transparent;
   background-color: transparent;
   font-family: "Bookman Old Style", monospace;
   font-size: 20px; }
-  .header-button:hover {
+  .header-nav-button:hover {
     cursor: pointer;
     color: #3c3c46; }
 
@@ -132,7 +132,7 @@ body {
     height: 45px;
     font-size: 20px; }
 
-  .header-button {
+  .header-nav-button {
     font-size: 14px; }
 
   .logo {
@@ -155,7 +155,7 @@ body {
     height: 45px;
     font-size: 16px; }
 
-  .header-button {
+  .header-nav-button {
     font-size: 14px; }
 
   .logo {
@@ -194,7 +194,7 @@ body {
     height: 45px;
     font-size: 14px; }
 
-  .header-button {
+  .header-nav-button {
     font-size: 12px; }
 
   .logo {
@@ -237,7 +237,7 @@ body {
     height: 40px;
     font-size: 10px; }
 
-  .header-button {
+  .header-nav-button {
     font-size: 8px; }
 
   .logo {
