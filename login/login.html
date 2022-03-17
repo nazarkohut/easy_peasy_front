@@ -7,57 +7,54 @@
     <link rel="stylesheet" href="login.css" type="text/css">
 </head>
 <body>
-<div class="login-page">
-    <header class="header">
-        <nav class="header-nav">
-            <div class="logo-site-name">
-                <a href="../logo_easy_peasy.jpg" class="logo-site-click">
-                    <img src="../logo_easy_peasy.jpg"
-                         alt="" title="logo" class="logo">
-                    <p class="site-name">asyPeasy</p>
-                </a>
-            </div>
-            <div class="header-button-wrapper">
-                <a href="../problems/problems.html" class="header-button-link header-button-wrapper">
-                    <input type="submit" class="header-button" value="Learning">
-                </a>
-            </div>
-            <div class="header-button-wrapper">
-                <a href="../problems/problems.html" class="header-button-link header-button-wrapper">
-                    <button type="button" class="header-button">Problems</button>
-                </a>
-            </div>
-            <div class="header-button-wrapper">
-                <a href="../problems/problems.html" class="header-button-link header-button-wrapper">
-                    <button type="button" class="header-button">Tests</button>
-                </a>
-            </div>
-        </nav>
-    </header>
-    <div class="form-wrapper">
-        <h3 class="form-header">Sign In</h3>
-        <form class="login-form">
-            <label class="login-field">
-                <input type="text" name="username" placeholder="Username or Email" class="register-input">
-            </label>
-            <label class="login-field">
-                <input type="password" name="password" placeholder="Password" required="required"
-                       class="register-input">
-            </label>
-            <button type="submit" class="submit-button">Log In</button>
-            <p class="form-text">
-                Do not have an account? <a href="../registration/register.html">Create an account</a>.
-            </p>
-        </form>
+<nav class="header-nav">
+    <div class="logo-site-name">
+        <a href="../logo_easy_peasy.jpg" class="logo-site-click">
+            <img src="../logo_easy_peasy.jpg"
+                 alt="" title="logo" class="logo">
+            <p class="site-name">asyPeasy</p>
+        </a>
     </div>
+    <div class="header-button-wrapper">
+        <a href="../problems/problems.html" class="header-button-link header-button-wrapper">
+            <input type="submit" class="header-button" value="Learning">
+        </a>
+    </div>
+    <div class="header-button-wrapper">
+        <a href="../problems/problems.html" class="header-button-link header-button-wrapper">
+            <button type="button" class="header-button">Problems</button>
+        </a>
+    </div>
+    <div class="header-button-wrapper">
+        <a href="../problems/problems.html" class="header-button-link header-button-wrapper">
+            <button type="button" class="header-button">Tests</button>
+        </a>
+    </div>
+</nav>
 
-</div>
+<section class="form-wrapper">
+    <h3 class="form-header">Sign In</h3>
+    <form class="login-form" method="post">
+        <label class="login-field">
+            <input type="text" name="username" placeholder="Username or Email" class="register-input">
+        </label>
+        <label class="login-field">
+            <input type="password" name="password" placeholder="Password" required="required"
+                   class="register-input">
+        </label>
+        <button type="submit" class="submit-button">Log In</button>
+        <p class="form-text">
+            Do not have an account? <a href="../registration/register.html">Create an account</a>.
+        </p>
+    </form>
+</section>
+
 <footer class="footer">
-    <nav class="footer-nav">
+    <div class="footer-nav">
         <a href="" class="footer-link">About</a>
         <a href="" class="footer-link">Terms</a>
         <a href="" class="footer-link">Privacy Policy</a>
-    </nav>
+    </div>
 </footer>
 </body>
 </html>

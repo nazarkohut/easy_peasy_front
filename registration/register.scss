@@ -20,17 +20,13 @@ $footer-link-font: "Dubai Light", monospace;
   text-align: center;
 }
 
-html {
-  height: 100%;
-}
-
 body {
-  height: 100%;
   margin: 0;
 }
 
-.header {
-  position: absolute;
+.header-nav {
+  display: flex;
+  column-gap: 20px;
   background: $header-color;
   height: 50px;
   font-size: 30px;
@@ -39,11 +35,6 @@ body {
   left: 0;
   right: 0;
   display: -webkit-box;
-}
-
-.header-nav {
-  display: flex;
-  column-gap: 20px;
 }
 
 .header-button-wrapper{
@@ -101,8 +92,7 @@ body {
   background-color: $form-color;
   height: 470px;
   width: 375px;
-  margin: 0 auto;
-  transform: translateY(20vh);
+  margin: 27vh auto;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 1px $form-wrapper-shadow-color;
 }
@@ -194,14 +184,11 @@ body {
   }
 }
 
-@media screen and (max-width: 500px) and (min-width: 410px) {
-  .header {
-    height: 45px;
-    font-size: 20px;
-  }
-
+@media screen and (max-width: 600px) and (min-width: 410px) {
   .header-nav {
     column-gap: 10px;
+    height: 45px;
+    font-size: 20px;
   }
 
   .header-button {
@@ -234,13 +221,10 @@ body {
 }
 
 @media screen and (max-width: 410px) and (min-width: 320px) {
-  .header {
-    height: 45px;
-    font-size: 16px;
-  }
-
   .header-nav {
     column-gap: 4px;
+    height: 45px;
+    font-size: 16px;
   }
 
   .header-button {
@@ -297,13 +281,10 @@ body {
 }
 
 @media screen and (max-width: 320px) and (min-width: 277px) {
-  .header {
-    height: 45px;
-    font-size: 14px;
-  }
-
   .header-nav {
     column-gap: 2px;
+    height: 45px;
+    font-size: 14px;
   }
 
   .header-button {
@@ -361,13 +342,10 @@ body {
 }
 
 @media screen and (max-width: 277px) {
-  .header {
-    height: 40px;
-    font-size: 10px;
-  }
-
   .header-nav {
     column-gap: 2px;
+    height: 40px;
+    font-size: 10px;
   }
 
   .header-button {

@@ -1,12 +1,9 @@
-html {
-  height: 100%; }
-
 body {
-  height: 100%;
   margin: 0; }
 
-.header {
-  position: absolute;
+.header-nav {
+  display: flex;
+  column-gap: 20px;
   background: #f2f2f2;
   height: 50px;
   font-size: 30px;
@@ -15,10 +12,6 @@ body {
   left: 0;
   right: 0;
   display: -webkit-box; }
-
-.header-nav {
-  display: flex;
-  column-gap: 20px; }
 
 .header-button-wrapper {
   display: flex;
@@ -67,8 +60,7 @@ body {
   background-color: #f8f8ff;
   height: 470px;
   width: 375px;
-  margin: 0 auto;
-  transform: translateY(20vh);
+  margin: 27vh auto;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 1px gainsboro; }
 
@@ -143,13 +135,11 @@ body {
   .footer-link:hover {
     text-decoration-color: #000000; }
 
-@media screen and (max-width: 500px) and (min-width: 410px) {
-  .header {
+@media screen and (max-width: 600px) and (min-width: 410px) {
+  .header-nav {
+    column-gap: 10px;
     height: 45px;
     font-size: 20px; }
-
-  .header-nav {
-    column-gap: 10px; }
 
   .header-button {
     font-size: 14px; }
@@ -173,12 +163,10 @@ body {
   .footer-link {
     font-size: 18px; } }
 @media screen and (max-width: 410px) and (min-width: 320px) {
-  .header {
+  .header-nav {
+    column-gap: 4px;
     height: 45px;
     font-size: 16px; }
-
-  .header-nav {
-    column-gap: 4px; }
 
   .header-button {
     font-size: 14px; }
@@ -221,12 +209,10 @@ body {
   .footer-link {
     font-size: 16px; } }
 @media screen and (max-width: 320px) and (min-width: 277px) {
-  .header {
+  .header-nav {
+    column-gap: 2px;
     height: 45px;
     font-size: 14px; }
-
-  .header-nav {
-    column-gap: 2px; }
 
   .header-button {
     font-size: 12px; }
@@ -270,12 +256,10 @@ body {
   .footer-link {
     font-size: 16px; } }
 @media screen and (max-width: 277px) {
-  .header {
+  .header-nav {
+    column-gap: 2px;
     height: 40px;
     font-size: 10px; }
-
-  .header-nav {
-    column-gap: 2px; }
 
   .header-button {
     font-size: 8px; }
