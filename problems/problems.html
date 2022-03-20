@@ -30,35 +30,28 @@
             <input type="submit" class="header-nav-button" value="Tests">
         </a>
     </div>
+    <div class="profile-logo-wrapper">
+        <a href="">
+            <img src="../profile_logo.jpg" class="profile-logo-button" alt="" height="60" width="60">
+        </a>
+    </div>
 </nav>
 
-<section class="problem-list-wrapper">
-    <div class="wrapper">
-        <ul class="problem-list">
-            <div class="problem-list-parameters">
-                <p>id</p>
-                <p>task</p>
-                <p>complexity</p>
-                <p>accepted/attempts</p>
-            </div>
-            <li class="problem-box">first</li>
-            <li class="problem-box">Second</li>
-            <li class="problem-box">Third</li>
-            <li class="problem-box">Fourth</li>
-            <li class="problem-box">Fifth</li>
-            <li class="problem-box">Sixth</li>
-            <li class="problem-box">Seventh</li>
-            <li class="problem-box">Third</li>
-            <li class="problem-box">Fourth</li>
-            <li class="problem-box">Fifth</li>
-            <li class="problem-box">Sixth</li>
-            <li class="problem-box">Seventh</li>
-            <li class="problem-box">Third</li>
-            <li class="problem-box">Fourth</li>
-            <li class="problem-box">Fifth</li>
-            <li class="problem-box">Sixth</li>
-            <li class="problem-box">Seventh</li>
-        </ul>
+
+<section class="problem-page-content">
+    <div class="problem-search-wrapper">
+    </div>
+    <div class="problem-list-wrapper">
+        <table class="problem-list-parameters">
+            <thead>
+            <tr class="problem-list" id="problem-list">
+                <th class="problem-box first-column">Id</th>
+                <th class="problem-box">Task</th>
+                <th class="problem-box">Complexity</th>
+                <th class="problem-box">Accepted/Attempts</th>
+            </tr>
+            </thead>
+        </table>
     </div>
 </section>
 
@@ -69,5 +62,6 @@
         <a href="" class="footer-link">Privacy Policy</a>
     </nav>
 </footer>
+<script type="module" src="problems.js"></script>
 </body>
 </html>
