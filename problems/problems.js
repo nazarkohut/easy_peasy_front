@@ -64,35 +64,6 @@ fetch('http://127.0.0.1:8000/problem/all/', {
     console.log(e);
 })
 
-
-// import {clearCookie, getCookie, setCookie} from "../misc/cookie.mjs";
-//
-// let problemList = document.getElementById('problem-list');
-//
-// fetch('http://127.0.0.1:8000/problem/all/', {
-//     method: "GET",
-//     headers: {'Authorization': `Bearer ${getCookie('access')}`}
-// }).then((response) => {
-//     if (response.status === 200) {
-//         return response.json();
-//     }
-//     window.location.href = '../403_page.html'
-// }).then(data => {
-//     let keys = ['id', 'task', 'complexity', 'accepted', 'attempts'];
-//     data.forEach((obj) => {
-//         let listElement = document.createElement("li")
-//         listElement.className = "problem-box"
-//         keys.forEach((key) =>{
-//             let content = document.createElement('p');
-//             content.innerHTML = obj[key];
-//             listElement.appendChild(content);
-//         })
-//         problemList.appendChild(listElement)
-//     })
-// }).catch((e) => {
-//     console.log(e);
-// })
-
 // json to login
 //{
 //     "username": "testuser",

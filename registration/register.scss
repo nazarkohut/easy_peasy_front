@@ -86,7 +86,8 @@ body {
 
 .form-wrapper {
   background-color: $form-color;
-  height: 470px;
+  min-height: 470px;
+  overflow: auto;
   width: 375px;
   margin: 27vh auto;
   border-radius: 20px;
