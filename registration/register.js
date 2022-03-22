@@ -1,7 +1,7 @@
 let submitButton = document.querySelector('.submit-button');
 let error = document.querySelector('.error');
 submitButton.onclick = (event) => {
-    let loginForm = document.getElementById("register-form");
+    let loginForm = document.getElementById('register-form');
     if (loginForm.checkValidity()) {
         event.preventDefault();
         loginForm = loginForm.getElementsByTagName('input');
@@ -15,11 +15,11 @@ submitButton.onclick = (event) => {
         )
         if (body['password'] !== body['confirm_password']) {
             error.innerHTML = "Passwords didn't match.";
-            error.style = "font-size: 12px; color: red; font-family: \"Dubai Light\", monospace;"
+            error.style = 'font-size: 12px; color: red; font-family: "Dubai Light", monospace;'
             return
         }
         fetch('http://127.0.0.1:8000/auth/register/', {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify(body),
             headers: {'Content-Type': 'application/json; charset=UTF-8'}
         }).then((response) => {
@@ -31,7 +31,7 @@ submitButton.onclick = (event) => {
                 }).catch(e => {
                     if (e) {
                         error.innerHTML = e;
-                        error.style = "font-size: 12px; color: red; font-family: \"Dubai Light\", monospace;"
+                        error.style = 'font-size: 12px; color: red; font-family: "Dubai Light", monospace;'
                         console.log(e);
                     }
                 });

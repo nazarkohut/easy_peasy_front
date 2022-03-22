@@ -1,9 +1,9 @@
-import {setCookie} from "../misc/cookie.mjs";
+import {setCookie} from '../misc/cookie.mjs';
 
 let submitButton = document.querySelector('.submit-button');
 let error = document.querySelector('.error');
 submitButton.onclick = (event) => {
-    let loginForm = document.getElementById("login-form");
+    let loginForm = document.getElementById('login-form');
     if (loginForm.checkValidity()) {
         event.preventDefault();
         loginForm = loginForm.getElementsByTagName('input');
@@ -16,13 +16,13 @@ submitButton.onclick = (event) => {
             }
         )
         fetch('http://127.0.0.1:8000/auth/login/', {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify(body),
             headers: {'Content-Type': 'application/json; charset=UTF-8'}
         }).then((response) => {
             if (response.status === 200) {
                 response.json().then((data) => {
-                    setCookie("access", data['access'], 60);
+                    setCookie('access', data['access'], 60);
                     setCookie('refresh', data['refresh'], 60 * 24 * 15);
                     window.location.href = '../problems/problems.html';
                 })
@@ -32,7 +32,7 @@ submitButton.onclick = (event) => {
                 }).catch(e => {
                     if (e) {
                         error.innerHTML = e;
-                        error.style = "font-size: 12px; color: red; font-family: \"Dubai Light\", monospace;"
+                        error.style = 'font-size: 12px; color: red; font-family: "Dubai Light", monospace;'
                     }
                 });
             }
