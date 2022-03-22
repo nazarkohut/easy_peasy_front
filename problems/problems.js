@@ -1,10 +1,10 @@
-import {clearCookie, getCookie, setCookie} from "../misc/cookie.mjs";
+import {getCookie} from '../misc/cookie.mjs';
 
 let problemList = document.getElementById('problem-list');
-let problemComplexity = {1: "Easy", 2: "Medium", 3: "Hard"};
-let problemComplexityStyles = {1: "green", 2: "yellow", 3: "red"};
+let problemComplexity = {1: 'Easy', 2: 'Medium', 3: 'Hard'};
+let problemComplexityStyles = {1: 'green', 2: 'yellow', 3: 'red'};
 fetch('http://127.0.0.1:8000/problem/all/', {
-    method: "GET",
+    method: 'GET',
     headers: {'Authorization': `Bearer ${getCookie('access')}`}
 }).then((response) => {
     if (response.status === 200) {
@@ -14,8 +14,8 @@ fetch('http://127.0.0.1:8000/problem/all/', {
 }).then(data => {
     let keys = ['id', 'task', 'complexity', 'accepted'];//, 'attempts'];
     data.forEach((obj) => {
-        let listElement = document.createElement("tr")
-        listElement.className = "problem-box"
+        let listElement = document.createElement('tr')
+        listElement.className = 'problem-box'
 
         let bar = document.createElement('div');
         bar.className = 'a-a-bar'
@@ -26,7 +26,7 @@ fetch('http://127.0.0.1:8000/problem/all/', {
             let content = document.createElement('td');
 
             if (key === 'id') {
-                content.className += " first-column"
+                content.className += ' first-column'
             }
             content.innerHTML = obj[key];
             if (key === 'complexity') {
@@ -49,8 +49,8 @@ fetch('http://127.0.0.1:8000/problem/all/', {
                 } else {
                     content.innerHTML += '/' + obj['attempts'];
                     correctnessBar.innerHTML = content.innerHTML;
-                    content.innerHTML = "";
-                    let percentage = (Number(obj['accepted']) * 100) / obj['attempts'];
+                    content.innerHTML = '';
+                    let percentage = Number(obj['accepted']) * 100 / obj['attempts'];
                     correctnessBar.style.width = String(percentage) + '%'
                 }
                 bar.appendChild(correctnessBar);
@@ -64,8 +64,3 @@ fetch('http://127.0.0.1:8000/problem/all/', {
     console.log(e);
 })
 
-// json to login
-//{
-//     "username": "testuser",
-//     "password": "password"
-// }
