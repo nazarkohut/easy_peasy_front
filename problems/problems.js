@@ -3,6 +3,9 @@ import {getCookie} from '../misc/cookie.mjs';
 let problemList = document.getElementById('problem-list');
 let problemComplexity = {1: 'Easy', 2: 'Medium', 3: 'Hard'};
 let problemComplexityStyles = {1: 'green', 2: 'yellow', 3: 'red'};
+if (!getCookie('access')){
+    window.location.href = '../403_page.html';
+}
 fetch('http://127.0.0.1:8000/problem/all/', {
     method: 'GET',
     headers: {'Authorization': `Bearer ${getCookie('access')}`}
@@ -10,7 +13,7 @@ fetch('http://127.0.0.1:8000/problem/all/', {
     if (response.status === 200) {
         return response.json();
     }
-    window.location.href = '../403_page.html'
+    window.location.href = '../403_page.html';
 }).then(data => {
     let keys = ['id', 'task', 'complexity', 'accepted'];//, 'attempts'];
     data.forEach((obj) => {
