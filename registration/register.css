@@ -7,11 +7,7 @@ body {
   background: #f2f2f2;
   height: 50px;
   font-size: 30px;
-  padding: 10px 10px;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: -webkit-box; }
+  padding: 10px 10px; }
 
 .header-nav-button-wrapper {
   display: flex;
@@ -58,7 +54,8 @@ body {
 
 .form-wrapper {
   background-color: #f8f8ff;
-  height: 470px;
+  min-height: 470px;
+  overflow: auto;
   width: 375px;
   margin: 27vh auto;
   border-radius: 20px;
@@ -67,7 +64,7 @@ body {
 .form-header {
   margin: 0;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 15px;
   font-family: "Courier New", monospace; }
 
 .terms-condition {
