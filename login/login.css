@@ -8,9 +8,6 @@ body {
   height: 50px;
   font-size: 30px;
   padding: 10px 10px;
-  top: 0;
-  left: 0;
-  right: 0;
   display: -webkit-box; }
 
 .header-button-wrapper {
@@ -55,11 +52,12 @@ body {
 
 .form-wrapper {
   background-color: #f8f8ff;
-  height: 375px;
+  min-height: 375px;
   width: 375px;
   margin: 27vh auto;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px 1px gainsboro; }
+  box-shadow: 5px 5px 5px 1px gainsboro;
+  padding-bottom: 15px; }
 
 .form-header {
   margin: 0;
@@ -74,7 +72,7 @@ body {
   transition: 0.5s ease;
   width: 100px;
   height: 40px;
-  margin: 30px 0 6px 175px;
+  margin: 25px 0 6px 175px;
   border-color: transparent;
   color: #ffffff;
   font-family: "Bookman Old Style", monospace; }
@@ -84,7 +82,7 @@ body {
     cursor: pointer; }
 
 .form-text {
-  margin: 40px 0 30px 0;
+  margin: 40px 0 0 0;
   font-family: "Dubai", monospace;
   font-size: 14px; }
 

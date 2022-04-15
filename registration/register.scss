@@ -31,10 +31,6 @@ body {
   height: 50px;
   font-size: 30px;
   padding: 10px 10px;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: -webkit-box;
 }
 
 .header-nav-button-wrapper{
@@ -90,7 +86,8 @@ body {
 
 .form-wrapper {
   background-color: $form-color;
-  height: 470px;
+  min-height: 470px;
+  overflow: auto;
   width: 375px;
   margin: 27vh auto;
   border-radius: 20px;
@@ -100,7 +97,7 @@ body {
 .form-header {
   margin: 0;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 15px;
   font-family: $form-header-font;
 }
 
