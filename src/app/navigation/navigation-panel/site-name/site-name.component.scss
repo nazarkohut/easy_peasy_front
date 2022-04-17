@@ -1,0 +1,19 @@
+//@import "assets/styles/colors";
+@use '../../../../assets/styles/colors' as colors;
+@use '../../../../assets/styles/mixins' as mixins;
+
+
+.logo-site-name {
+  @include mixins.flex-mixin;
+
+  a {
+    @include mixins.flex-mixin;
+    text-decoration: none;
+    color: colors.$black;
+  }
+}
+
+.logo {
+  height: 45px;
+  width: 45px;
+}

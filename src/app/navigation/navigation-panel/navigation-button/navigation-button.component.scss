@@ -1,0 +1,14 @@
+@use '../../../../assets/styles/fonts.scss' as fonts;
+@use '../../../../assets/styles/colors.scss' as colors;
+
+.header-nav-button{
+  border-color: transparent;
+  background-color: transparent;
+  font-family: fonts.$submit-button-font;
+  font-size: 20px;
+
+  &:hover {
+    cursor: pointer;
+    color: colors.$nav-button-hover-color;
+  }
+}

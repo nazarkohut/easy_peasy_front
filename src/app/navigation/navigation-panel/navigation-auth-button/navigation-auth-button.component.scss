@@ -1,0 +1,16 @@
+@use '../../../../assets/styles/fonts.scss' as fonts;
+@use '../../../../assets/styles/colors.scss' as colors;
+
+.header-nav-auth-button{
+  border: 2px colors.$nav-auth-button-color solid;
+  border-radius: 13px;
+  width: 150px;
+  height: 35px;
+  font-family: fonts.$nav-auth-button-font;
+  font-size: 16px;
+  &:hover {
+    cursor: pointer;
+    color: colors.$white;
+    background-color: colors.$nav-auth-button-color;
+  }
+}

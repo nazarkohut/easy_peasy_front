@@ -1,0 +1,8 @@
+<nav class="navbar">
+  <app-site-name></app-site-name>
+  <app-navigation-button *ngFor="let item of navButtons" [navData]=item></app-navigation-button>
+  <div class="right-auth-panel">
+    <app-navigation-auth-button *ngFor="let item of navAuthButtons" [navData]=item></app-navigation-auth-button>
+  </div>
+</nav>
+

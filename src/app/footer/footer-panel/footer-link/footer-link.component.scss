@@ -1,0 +1,11 @@
+@use '../../../../assets/styles/colors' as colors;
+
+.footer-link {
+  font-size: 20px;
+  color: colors.$white;
+  //font-family: $footer-link-font;
+
+  &:hover {
+    text-decoration-color: #000000;
+  }
+}

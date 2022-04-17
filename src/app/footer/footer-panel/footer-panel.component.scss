@@ -1,0 +1,17 @@
+@use '../../../assets/styles/colors' as colors;
+
+.footer {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background-color: colors.$footer-color;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-nav {
+  display: flex;
+  column-gap: 50px;
+  margin-left: 50px;
+}

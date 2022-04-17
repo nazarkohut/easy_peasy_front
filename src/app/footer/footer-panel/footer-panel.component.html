@@ -1,0 +1,8 @@
+<footer class="footer">
+  <div class="footer-nav">
+<!--    <a href="" class="footer-link">About</a>-->
+<!--    <a href="" class="footer-link">Terms</a>-->
+<!--    <a href="" class="footer-link">Privacy Policy</a>-->
+    <app-footer-link *ngFor="let data of footerNavButtons" [footerNavData]="data"></app-footer-link>
+  </div>
+</footer>
