@@ -14,6 +14,11 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { RegisterFormComponent } from './section/register-form/register-form.component';
+import { LoginFormComponent } from './section/login-form/login-form.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { SubmitButtonComponent } from './section/submit-button/submit-button.component';
+import { FormHeaderComponent } from './section/form-header/form-header.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +31,18 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
     AboutComponent,
     HomeComponent,
     TermsComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    RegisterFormComponent,
+    LoginFormComponent,
+    SubmitButtonComponent,
+    FormHeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SiteNameModule,
-    FooterPanelModule
+    FooterPanelModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

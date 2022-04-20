@@ -1,0 +1,32 @@
+@use '../../../assets/styles/colors' as colors;
+
+.form-wrapper{
+  min-height: 375px;
+  width: 375px;
+}
+
+.login-input {
+  box-sizing: border-box;
+  border-color: transparent;
+  border-radius: 4px;
+  border-bottom-width: 3px;
+  border-bottom-color: darkgrey;
+  height: 35px;
+  width: 275px;
+  background-color: transparent;
+  margin-top: 30px;
+  font-family: "Lucida Console", monospace;
+
+  &:focus {
+    border-color: transparent;
+    border-bottom: 2px solid colors.$register-input-focus-color;
+    transition: 0.3s ease;
+    outline: none;
+  }
+}
+
+.login-form{
+  text-align: center;
+}
+
+
