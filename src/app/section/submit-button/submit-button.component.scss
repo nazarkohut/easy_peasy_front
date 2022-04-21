@@ -1,12 +1,12 @@
 @use '../../../assets/styles/colors' as colors;
 
 .submit-button {
-  background: #1a73e8;
+  background: colors.$submit-button-color;
   border-radius: 6px;
   transition: 0.5s ease;
   width: 100px;
   height: 40px;
-  margin: 25px 0 6px 175px;
+  margin: 45px 0 6px 175px;
   border-color: transparent;
   color: colors.$white;
   font-family: "Bookman Old Style", monospace;

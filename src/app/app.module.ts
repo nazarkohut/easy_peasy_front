@@ -19,6 +19,7 @@ import { LoginFormComponent } from './section/login-form/login-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { SubmitButtonComponent } from './section/submit-button/submit-button.component';
 import { FormHeaderComponent } from './section/form-header/form-header.component';
+import { FormTextComponent } from './section/form-text/form-text.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FormHeaderComponent } from './section/form-header/form-header.component
     RegisterFormComponent,
     LoginFormComponent,
     SubmitButtonComponent,
-    FormHeaderComponent
+    FormHeaderComponent,
+    FormTextComponent
   ],
   imports: [
     BrowserModule,

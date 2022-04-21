@@ -1,5 +1,5 @@
 <section class="form-wrapper">
-  <app-form-header [text]="'Login'"></app-form-header>
+  <app-form-header [text]="'Sign In'" [paddingTop]="'login'"></app-form-header>
   <form class="login-form" [formGroup]="form" (submit)="onSubmit()">
     <label>
       <input class="login-input" type="email" formControlName="email_or_username" placeholder="Email or username">
@@ -10,6 +10,8 @@
       <input class="login-input" type="password" formControlName="password" placeholder="Password">
     </label>
     <app-submit-button [buttonValue]="'Log In'"></app-submit-button>
+    <app-form-text [text]="'Do not have an account?'" [linkText]="'Create an account'" [link]="'/registration'"
+    [paddingBottom]="'login'"></app-form-text>
   </form>
 </section>
 

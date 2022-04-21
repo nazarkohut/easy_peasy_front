@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +15,7 @@ export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup = new FormGroup({})
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   determineIfEmailOrUsername(): FormGroup {
@@ -66,5 +67,4 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     this.determineIfEmailOrUsername();
   }
-
 }
