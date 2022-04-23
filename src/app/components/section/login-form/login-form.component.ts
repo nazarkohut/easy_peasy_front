@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth/auth.service";
 
@@ -8,6 +8,7 @@ import {AuthService} from "../../../services/auth/auth.service";
   styleUrls: ['../auth-form.scss', './login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+  @ViewChild('error') error: ElementRef<HTMLDivElement>;
   form: FormGroup = new FormGroup({
     email_or_username: new FormControl(''),
     password: new FormControl('')
@@ -16,6 +17,7 @@ export class LoginFormComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({})
 
   constructor(private auth: AuthService) {
+    this.error = {} as ElementRef<HTMLDivElement>;
   }
 
   determineIfEmailOrUsername(): FormGroup {
@@ -59,65 +61,38 @@ export class LoginFormComponent implements OnInit {
 
   }
 
-  validateEmail() {
-    return this.loginForm.controls.hasOwnProperty('email') &&
-      (this.loginForm.get('email')?.invalid) && (this.form.get('email_or_username')?.dirty || this.form.get('email_or_username')?.touched)
-  }
-
-  validateUsername() {
-    return this.loginForm.controls.hasOwnProperty('username') &&
-      (this.loginForm.get('username')?.invalid && (this.form.get('email_or_username')?.dirty || this.form.get('email_or_username')?.touched))
-  }
-
-  validatePassword() {
-    return this.loginForm.get('password')?.invalid && (this.form.get('password')?.dirty || this.form.get('password')?.touched)
+  getServerErrorText(errorValue: any): string{
+    console.log("Erororororo", errorValue)
+    if(typeof (errorValue) === 'string'){
+      return errorValue
+    } else if (typeof (errorValue) === 'object'){
+      return errorValue?.[0]
+    }
+    return String();
   }
 
   onSubmit() {
     this.determineIfEmailOrUsername();
+    this.error.nativeElement.textContent = String();
+    this.form.markAllAsTouched();
     this.auth.login(this.loginForm.value).subscribe((data) => {
       console.log("data", data);
+    }, (error) => {
+      let error_data = error?.error;
+      if (error_data.hasOwnProperty('detail')) {
+        this.error.nativeElement.textContent = this.getServerErrorText(error_data?.detail);
+      } else if (error_data.hasOwnProperty('non_field_errors')){
+        this.error.nativeElement.textContent = this.getServerErrorText(error_data?.non_field_errors);
+      }
+      console.log(error);
+      console.log(error?.error?.detail);
+      console.log(error?.error?.non_field_errors?.[0]);
     });
 
     console.log(this.loginForm.get('email'))
     console.log(this.loginForm.get('username'))
     console.log(this.loginForm.get('password'))
   }
-
-  getEmailError(): string {
-    if (this.loginForm.get('email')?.hasError('required')) {
-      return 'This field is required';
-    } else if (this.loginForm.get('email')?.hasError('maxlength')) {
-      return `Email must not be greater than ${this.loginForm.get('email')?.errors?.['maxlength']?.['requiredLength']}
-      characters long, your email have ${this.loginForm.get('email')?.errors?.['maxlength']?.['actualLength']} characters`
-    } else if (this.loginForm.get('email')?.hasError('email')) {
-      return 'Email is not valid';
-    }
-    return '';
-  }
-
-  getUsernameError(): string {
-    if (this.loginForm.get('username')?.hasError('required')) {
-      return 'This field is required';
-    } else if (this.loginForm.get('username')?.hasError('maxlength')) {
-      return `Username must not be greater than ${this.loginForm.get('username')?.errors?.['maxlength']?.['requiredLength']}
-      characters long, your username have ${this.loginForm.get('username')?.errors?.['maxlength']?.['actualLength']} characters`;
-    } else if (this.loginForm.get('username')?.hasError('alphaNumeric')){
-      return 'Username can contain only alphanumeric characters';
-    }
-    return '';
-  }
-
-  getPasswordError(): string {
-    if (this.loginForm.get('password')?.hasError('required')) {
-      return 'This field is required';
-    } else if (this.loginForm.get('password')?.hasError('minlength')) {
-      return `Password must be at least ${this.loginForm.get('password')?.errors?.['minlength']?.['requiredLength']}
-      characters long, your password have ${this.loginForm.get('password')?.errors?.['minlength']?.['actualLength']} characters`
-    }
-    return '';
-  }
-
 
   alphaNumericValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
@@ -129,13 +104,13 @@ export class LoginFormComponent implements OnInit {
       return !isValueValid ? {alphaNumeric: {containsAlphaNumeric: true} } : null;
     }
   }
-
+  // custom validator
   isAlphaNumeric(s: string) {
     let code, i, len;
 
     for (i = 0, len = s.length; i < len; i++) {
       code = s.charCodeAt(i);
-      if (!(this.isNumeric(code)) || this.isAlpha(code)) {
+      if (!((this.isNumeric(code)) || this.isAlpha(code)) ) {
         return false;
       }
     }
@@ -143,12 +118,12 @@ export class LoginFormComponent implements OnInit {
   };
 
   isNumeric(code: number) {
-    return (code > this.getASCII('0') && code < this.getASCII('9'));
+    return (code >= this.getASCII('0') && code <= this.getASCII('9'));
   }
 
   isAlpha(code: number) {
-    return (code > this.getASCII('A') && code < this.getASCII('Z')) ||
-      (code > this.getASCII('a') && code < this.getASCII('z'));
+    return (code >= this.getASCII('A') && code <= this.getASCII('Z')) ||
+      (code >= this.getASCII('a') && code <= this.getASCII('z'));
   }
 
   getASCII(ch: string): number {

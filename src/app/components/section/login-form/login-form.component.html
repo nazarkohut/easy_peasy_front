@@ -4,20 +4,13 @@
     <label>
       <input class="login-input" type="email" formControlName="email_or_username" placeholder="Email or username" required>
     </label>
-    <div *ngIf="this.validateEmail()"
-         class="alert alert-danger">
-      {{this.getEmailError()}}
-    </div>
-    <div *ngIf="this.validateUsername()"
-         class="alert alert-danger">
-      {{this.getUsernameError()}}
-    </div>
+    <app-login-email-validation [loginForm]="this.loginForm" [form]="this.form"></app-login-email-validation>
+    <app-login-username-validation [loginForm]="this.loginForm" [form]="this.form"></app-login-username-validation>
     <label>
       <input class="login-input" type="password" formControlName="password" placeholder="Password" required>
     </label>
-    <div *ngIf="this.validatePassword()">
-      {{this.getPasswordError()}}
-    </div>
+    <app-password-validation [loginForm]="this.loginForm" [form]="this.form"  ></app-password-validation>
+    <div #error class="error"></div>
     <app-submit-button [buttonValue]="'Log In'"></app-submit-button>
     <app-form-text [text]="'Do not have an account?'" [linkText]="'Create an account'" [link]="'/registration'"
     [paddingBottom]="'login'"></app-form-text>

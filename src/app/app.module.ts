@@ -21,6 +21,9 @@ import { SubmitButtonComponent } from './components/section/submit-button/submit
 import { FormHeaderComponent } from './components/section/form-header/form-header.component';
 import { FormTextComponent } from './components/section/form-text/form-text.component';
 import {HttpClientModule} from "@angular/common/http";
+import { LoginEmailValidationComponent } from './components/section/input-validation/login-email-validation/login-email-validation.component';
+import { LoginUsernameValidationComponent } from './components/section/input-validation/login-username-validation/login-username-validation.component';
+import { PasswordValidationComponent } from './components/section/input-validation/password-validation/password-validation.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import {HttpClientModule} from "@angular/common/http";
     LoginFormComponent,
     SubmitButtonComponent,
     FormHeaderComponent,
-    FormTextComponent
+    FormTextComponent,
+    LoginEmailValidationComponent,
+    LoginUsernameValidationComponent,
+    PasswordValidationComponent,
   ],
   imports: [
     BrowserModule,
