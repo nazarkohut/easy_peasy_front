@@ -14,7 +14,7 @@ export class FormTextComponent implements OnInit {
 
   PADDINGS: any = {
     'login': '25px',
-    'register': '40px'
+    'register': '30px'
   }
 
   constructor() {

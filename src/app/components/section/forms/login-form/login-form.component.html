@@ -12,7 +12,8 @@
     <app-password-validation [loginForm]="this.loginForm" [form]="this.form"  ></app-password-validation>
     <div #error class="error"></div>
 <!--    <app-server-validation-error-message #error></app-server-validation-error-message>-->
-    <app-submit-button [buttonValue]="'Log In'"></app-submit-button>
+<!--    <app-submit-button [buttonValue]="'Log In'"></app-submit-button>-->
+    <app-login-submit-button [buttonValue]="'Log In'"></app-login-submit-button>
     <app-form-text [text]="'Do not have an account?'" [linkText]="'Create an account'" [link]="'/registration'"
     [paddingBottom]="'login'"></app-form-text>
   </form>

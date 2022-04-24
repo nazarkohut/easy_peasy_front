@@ -1,0 +1,34 @@
+<section class="form-wrapper">
+  <app-form-header [text]="'Registration'" [paddingTop]="'register'"></app-form-header>
+  <form class="register-form" [formGroup]="form" (submit)="onSubmit()">
+    <label>
+      <input class="register-input" type="email" formControlName="email" placeholder="Email" required>
+    </label>
+    <label>
+      <input class="register-input" type="text" formControlName="username" placeholder="Username" required>
+    </label>
+    <label class="first-last-name-label">
+      <input class="register-input first-last-name" type="text" formControlName="first_name" placeholder="First name" required>
+    </label>
+    <label class="first-last-name-label">
+      <input class="register-input first-last-name" type="text" formControlName="last_name" placeholder="Last name" required>
+    </label>
+<!--&lt;!&ndash;    <app-login-email-validation [loginForm]="this.form" [form]="this.form"></app-login-email-validation>&ndash;&gt;-->
+<!--&lt;!&ndash;    <app-login-username-validation [loginForm]="form" [form]="this.form"></app-login-username-validation>&ndash;&gt;-->
+    <label>
+      <input class="register-input" type="password" formControlName="password" placeholder="Password" required>
+    </label>
+    <app-password-validation [loginForm]="this.form" [form]="this.form" ></app-password-validation>
+    <label>
+      <input class="register-input" type="password" formControlName="confirm_password" placeholder="Confirm password" required>
+    </label>
+
+    <app-auth-terms-warning [termsLink]="'/terms'" [policyLink]="'/privacy-policy'"></app-auth-terms-warning>
+<!--&lt;!&ndash;    <app-password-validation [loginForm]="this.loginForm" [form]="this.form"  ></app-password-validation>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div #error class="error"></div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <app-server-validation-error-message #error></app-server-validation-error-message>&ndash;&gt;-->
+    <app-registration-submit-button [buttonValue]="'Sign Up'"></app-registration-submit-button>
+    <app-form-text [text]="'Have an account?'" [linkText]="'Sign In'" [link]="'/login'"
+                   [paddingBottom]="'login'"></app-form-text>
+  </form>
+</section>

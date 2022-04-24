@@ -13,7 +13,7 @@ export class FormHeaderComponent implements OnInit {
   @ViewChild('formHeader') p: ElementRef<HTMLParagraphElement>;
   PADDINGS: any = {
     'login': '25px',
-    'register': '40px'
+    'register': '30px'
   }
 
   constructor() {

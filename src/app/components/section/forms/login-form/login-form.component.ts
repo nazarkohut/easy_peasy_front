@@ -1,15 +1,15 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {AuthService} from "../../../services/auth/auth.service";
+import {AuthService} from "../../../../services/auth/auth.service";
 import {Router} from "@angular/router";
-import {getPasswordValidators} from "../../../../assets/type-script/validators/password";
-import {getUsernameValidators} from "../../../../assets/type-script/validators/username";
-import {getEmailValidators} from "../../../../assets/type-script/validators/email";
+import {getPasswordValidators} from "../../../../../assets/type-script/validators/password";
+import {getUsernameValidators} from "../../../../../assets/type-script/validators/username";
+import {getEmailValidators} from "../../../../../assets/type-script/validators/email";
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['../auth-form.scss', './login-form.component.scss']
+  styleUrls: ['../../auth-form.scss', './login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
   @ViewChild('error') error: ElementRef;

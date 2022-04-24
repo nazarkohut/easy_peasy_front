@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubmitButtonComponent } from './submit-button.component';
+import { AuthTermsWarningComponent } from './auth-terms-warning.component';
 
-describe('SubmitButtonComponent', () => {
-  let component: SubmitButtonComponent;
-  let fixture: ComponentFixture<SubmitButtonComponent>;
+describe('AuthTermsWarningComponent', () => {
+  let component: AuthTermsWarningComponent;
+  let fixture: ComponentFixture<AuthTermsWarningComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SubmitButtonComponent ]
+      declarations: [ AuthTermsWarningComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubmitButtonComponent);
+    fixture = TestBed.createComponent(AuthTermsWarningComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
