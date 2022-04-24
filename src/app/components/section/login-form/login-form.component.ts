@@ -1,7 +1,10 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {AuthService} from "../../../services/auth/auth.service";
 import {Router} from "@angular/router";
+import {getPasswordValidators} from "../../../../assets/type-script/validators/password";
+import {getUsernameValidators} from "../../../../assets/type-script/validators/username";
+import {getEmailValidators} from "../../../../assets/type-script/validators/email";
 
 @Component({
   selector: 'app-login-form',
@@ -47,15 +50,15 @@ export class LoginFormComponent implements OnInit {
   getEmailOrUsernameControl(type: string, emailOrUsername: string): FormControl {
     if (type === 'email') {
       return new FormControl(emailOrUsername,
-        [Validators.required, Validators.email, Validators.maxLength(254)]);
+        getEmailValidators());
     }
     return new FormControl(emailOrUsername,
-      [Validators.required, Validators.maxLength(128), this.alphaNumericValidator()]);
+      getUsernameValidators());
   }
 
   getPasswordControl(password: string): FormControl {
     return new FormControl(password,
-      [Validators.required, Validators.minLength(6), Validators.maxLength(64)]);
+      getPasswordValidators());
   }
 
   ngOnInit(): void {
@@ -75,10 +78,13 @@ export class LoginFormComponent implements OnInit {
     this.determineIfEmailOrUsername();
     this.error.nativeElement.textContent = String();
     this.form.markAllAsTouched();
+    // if (this.loginForm.errors){ // have to do something like this here
+    //   return
+    // }
     this.auth.login(this.loginForm.value).subscribe(
       {
         next: (data) => {
-          this.router.navigate(['/problems']);
+          this.router.navigate(['/problem']);
         },
         error: (error) => {
           let error_data = error?.error;
@@ -94,42 +100,5 @@ export class LoginFormComponent implements OnInit {
           console.log(error?.error?.non_field_errors?.[0]);
         }
       });
-  }
-
-  alphaNumericValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const value = control.value;
-      if (!value) {
-        return null;
-      }
-      const isValueValid = this.isAlphaNumeric(value);
-      return !isValueValid ? {alphaNumeric: {containsAlphaNumeric: true}} : null;
-    }
-  }
-
-  // custom validator
-  isAlphaNumeric(s: string) {
-    let code, i, len;
-
-    for (i = 0, len = s.length; i < len; i++) {
-      code = s.charCodeAt(i);
-      if (!((this.isNumeric(code)) || this.isAlpha(code))) {
-        return false;
-      }
-    }
-    return true;
-  };
-
-  isNumeric(code: number) {
-    return (code >= this.getASCII('0') && code <= this.getASCII('9'));
-  }
-
-  isAlpha(code: number) {
-    return (code >= this.getASCII('A') && code <= this.getASCII('Z')) ||
-      (code >= this.getASCII('a') && code <= this.getASCII('z'));
-  }
-
-  getASCII(ch: string): number {
-    return ch.charCodeAt(0);
   }
 }
