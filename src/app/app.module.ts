@@ -17,13 +17,15 @@ import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privac
 import { RegisterFormComponent } from './components/section/register-form/register-form.component';
 import { LoginFormComponent } from './components/section/login-form/login-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { SubmitButtonComponent } from './components/section/submit-button/submit-button.component';
+import { SubmitButtonComponent } from './components/section/buttons/submit-button/submit-button.component';
 import { FormHeaderComponent } from './components/section/form-header/form-header.component';
 import { FormTextComponent } from './components/section/form-text/form-text.component';
 import {HttpClientModule} from "@angular/common/http";
 import { LoginEmailValidationComponent } from './components/section/input-validation/login-email-validation/login-email-validation.component';
 import { LoginUsernameValidationComponent } from './components/section/input-validation/login-username-validation/login-username-validation.component';
 import { PasswordValidationComponent } from './components/section/input-validation/password-validation/password-validation.component';
+import { ValidationErrorMessageComponent } from './components/section/input-validation/validation-error-message/validation-error-message.component';
+import { ServerValidationErrorMessageComponent } from './components/section/input-validation/server-validation-error-message/server-validation-error-message.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { PasswordValidationComponent } from './components/section/input-validati
     LoginEmailValidationComponent,
     LoginUsernameValidationComponent,
     PasswordValidationComponent,
+    ValidationErrorMessageComponent,
+    ServerValidationErrorMessageComponent,
   ],
   imports: [
     BrowserModule,

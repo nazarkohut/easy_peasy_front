@@ -1,6 +1,6 @@
 @use '../../../../assets/styles/colors' as colors;
 
-.form-wrapper{
+.form-wrapper {
   min-height: 355px;
   width: 375px;
 }
@@ -25,16 +25,14 @@
   }
 }
 
-.login-form{
+.login-form {
   text-align: center;
 }
 
-.error{
+.error {
   display: inline-block;
   text-align: center;
   margin-top: 10px;
   color: #BD0013;
   //color: #CE5E66;
 }
-
-

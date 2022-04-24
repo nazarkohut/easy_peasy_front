@@ -1,0 +1,19 @@
+.server_error_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 275px;
+
+  .server_error_logo {
+    display: inline;
+    width: 20px;
+    height: 20px;
+  }
+
+  .server_error_message {
+    color: #F89518;
+    font-size: 16px;
+    display: inline;
+    font-family: "Dubai", monospace;
+  }
+}

@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-form',
@@ -8,7 +9,7 @@ import {AuthService} from "../../../services/auth/auth.service";
   styleUrls: ['../auth-form.scss', './login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  @ViewChild('error') error: ElementRef<HTMLDivElement>;
+  @ViewChild('error') error: ElementRef;
   form: FormGroup = new FormGroup({
     email_or_username: new FormControl(''),
     password: new FormControl('')
@@ -16,8 +17,8 @@ export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup = new FormGroup({})
 
-  constructor(private auth: AuthService) {
-    this.error = {} as ElementRef<HTMLDivElement>;
+  constructor(private router: Router, private auth: AuthService) {
+    this.error = {} as ElementRef;
   }
 
   determineIfEmailOrUsername(): FormGroup {
@@ -61,11 +62,10 @@ export class LoginFormComponent implements OnInit {
 
   }
 
-  getServerErrorText(errorValue: any): string{
-    console.log("Erororororo", errorValue)
-    if(typeof (errorValue) === 'string'){
+  getServerErrorText(errorValue: any): string {
+    if (typeof (errorValue) === 'string') {
       return errorValue
-    } else if (typeof (errorValue) === 'object'){
+    } else if (typeof (errorValue) === 'object') {
       return errorValue?.[0]
     }
     return String();
@@ -75,23 +75,25 @@ export class LoginFormComponent implements OnInit {
     this.determineIfEmailOrUsername();
     this.error.nativeElement.textContent = String();
     this.form.markAllAsTouched();
-    this.auth.login(this.loginForm.value).subscribe((data) => {
-      console.log("data", data);
-    }, (error) => {
-      let error_data = error?.error;
-      if (error_data.hasOwnProperty('detail')) {
-        this.error.nativeElement.textContent = this.getServerErrorText(error_data?.detail);
-      } else if (error_data.hasOwnProperty('non_field_errors')){
-        this.error.nativeElement.textContent = this.getServerErrorText(error_data?.non_field_errors);
-      }
-      console.log(error);
-      console.log(error?.error?.detail);
-      console.log(error?.error?.non_field_errors?.[0]);
-    });
-
-    console.log(this.loginForm.get('email'))
-    console.log(this.loginForm.get('username'))
-    console.log(this.loginForm.get('password'))
+    this.auth.login(this.loginForm.value).subscribe(
+      {
+        next: (data) => {
+          this.router.navigate(['/problems']);
+        },
+        error: (error) => {
+          let error_data = error?.error;
+          if (error_data.hasOwnProperty('detail')) {
+            console.log(this.error);
+            this.error.nativeElement.textContent = this.getServerErrorText(error_data?.detail);
+          } else if (error_data.hasOwnProperty('non_field_errors')) {
+            console.log(this.error);
+            this.error.nativeElement.textContent = this.getServerErrorText(error_data?.non_field_errors);
+          }
+          console.log(error);
+          console.log(error?.error?.detail);
+          console.log(error?.error?.non_field_errors?.[0]);
+        }
+      });
   }
 
   alphaNumericValidator(): ValidatorFn {
@@ -101,16 +103,17 @@ export class LoginFormComponent implements OnInit {
         return null;
       }
       const isValueValid = this.isAlphaNumeric(value);
-      return !isValueValid ? {alphaNumeric: {containsAlphaNumeric: true} } : null;
+      return !isValueValid ? {alphaNumeric: {containsAlphaNumeric: true}} : null;
     }
   }
+
   // custom validator
   isAlphaNumeric(s: string) {
     let code, i, len;
 
     for (i = 0, len = s.length; i < len; i++) {
       code = s.charCodeAt(i);
-      if (!((this.isNumeric(code)) || this.isAlpha(code)) ) {
+      if (!((this.isNumeric(code)) || this.isAlpha(code))) {
         return false;
       }
     }

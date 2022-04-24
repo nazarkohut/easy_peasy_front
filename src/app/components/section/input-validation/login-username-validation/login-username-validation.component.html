@@ -1,4 +1,3 @@
-<div *ngIf="this.validateUsername()"
-     class="alert alert-danger">
-  {{this.getUsernameError()}}
+<div *ngIf="this.validateUsername()" class="wrapper">
+  <app-validation-error-message [messageText]="this.getUsernameError()"></app-validation-error-message>
 </div>

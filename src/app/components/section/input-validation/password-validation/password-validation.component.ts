@@ -4,7 +4,7 @@ import {FormGroup} from "@angular/forms";
 @Component({
   selector: 'app-password-validation',
   templateUrl: './password-validation.component.html',
-  styleUrls: ['./password-validation.component.scss']
+  styleUrls: ['../validation-error-wrapper.scss', './password-validation.component.scss']
 })
 export class PasswordValidationComponent implements OnInit {
   @Input() loginForm: FormGroup = {} as FormGroup;
@@ -25,7 +25,10 @@ export class PasswordValidationComponent implements OnInit {
       return 'This field is required';
     } else if (this.loginForm.get('password')?.hasError('minlength')) {
       return `Password must be at least ${this.loginForm.get('password')?.errors?.['minlength']?.['requiredLength']}
-      characters long, your password have ${this.loginForm.get('password')?.errors?.['minlength']?.['actualLength']} characters`
+      characters long, your password have ${this.loginForm.get('password')?.errors?.['minlength']?.['actualLength']} characters`;
+    } else if (this.loginForm.get('password')?.hasError('maxlength')){
+      return `Password must be at least ${this.loginForm.get('password')?.errors?.['maxlength']?.['requiredLength']}
+      characters long, your password have ${this.loginForm.get('password')?.errors?.['maxlength']?.['actualLength']} characters`
     }
     return '';
   }
