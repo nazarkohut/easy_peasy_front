@@ -31,6 +31,7 @@ import { AuthTermsWarningComponent } from './components/section/text-content/aut
 import { EmailValidationComponent } from './components/section/input-validation/email-validation/email-validation.component';
 import { RegisterTextValidationComponent } from './components/section/input-validation/register-text-validation/register-text-validation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmPasswordValidationComponent } from './components/section/input-validation/confirm-password-validation/confirm-password-validation.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthTermsWarningComponent,
     EmailValidationComponent,
     RegisterTextValidationComponent,
+    ConfirmPasswordValidationComponent,
   ],
   imports: [
     BrowserModule,

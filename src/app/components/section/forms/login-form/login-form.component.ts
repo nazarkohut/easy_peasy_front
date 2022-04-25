@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {getPasswordValidators} from "../../../../../assets/type-script/validators/fields/password";
 import {getUsernameValidators} from "../../../../../assets/type-script/validators/fields/username";
 import {getEmailValidators} from "../../../../../assets/type-script/validators/fields/email";
+import {getServerErrorText} from "../../../../../assets/type-script/error/server";
 
 @Component({
   selector: 'app-login-form',
@@ -65,15 +66,6 @@ export class LoginFormComponent implements OnInit {
 
   }
 
-  getServerErrorText(errorValue: any): string {
-    if (typeof (errorValue) === 'string') {
-      return errorValue
-    } else if (typeof (errorValue) === 'object') {
-      return errorValue?.[0]
-    }
-    return String();
-  }
-
   onSubmit() {
     this.determineIfEmailOrUsername();
     this.error.nativeElement.textContent = String();
@@ -90,10 +82,10 @@ export class LoginFormComponent implements OnInit {
           let error_data = error?.error;
           if (error_data.hasOwnProperty('detail')) {
             console.log(this.error);
-            this.error.nativeElement.textContent = this.getServerErrorText(error_data?.detail);
+            this.error.nativeElement.textContent = getServerErrorText(error_data?.detail);
           } else if (error_data.hasOwnProperty('non_field_errors')) {
             console.log(this.error);
-            this.error.nativeElement.textContent = this.getServerErrorText(error_data?.non_field_errors);
+            this.error.nativeElement.textContent = getServerErrorText(error_data?.non_field_errors);
           }
           console.log(error);
           console.log(error?.error?.detail);

@@ -44,8 +44,10 @@
              required>
     </label>
     <div class="wrapper">
-      <app-register-text-validation [form]="form" [fieldName]="'confirm_password'"></app-register-text-validation>
+      <app-confirm-password-validation [form]="form"></app-confirm-password-validation>
     </div>
+    <div #error class="error"></div>
+
 
     <app-auth-terms-warning [termsLink]="'/terms'" [policyLink]="'/privacy-policy'"></app-auth-terms-warning>
     <app-registration-submit-button [buttonValue]="'Sign Up'"></app-registration-submit-button>
