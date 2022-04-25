@@ -4,29 +4,50 @@
     <label>
       <input class="register-input" type="email" formControlName="email" placeholder="Email" required>
     </label>
+    <app-email-validation [form]="form"></app-email-validation>
+
     <label>
       <input class="register-input" type="text" formControlName="username" placeholder="Username" required>
     </label>
+    <div class="wrapper">
+      <app-register-text-validation [form]="form" [fieldName]="'username'"></app-register-text-validation>
+    </div>
+
     <label class="first-last-name-label">
-      <input class="register-input first-last-name" type="text" formControlName="first_name" placeholder="First name" required>
+      <input class="register-input first-last-name" type="text" formControlName="first_name" placeholder="First name"
+             required>
     </label>
+
     <label class="first-last-name-label">
-      <input class="register-input first-last-name" type="text" formControlName="last_name" placeholder="Last name" required>
+      <input class="register-input first-last-name" type="text" formControlName="last_name" placeholder="Last name"
+             required>
     </label>
-<!--&lt;!&ndash;    <app-login-email-validation [loginForm]="this.form" [form]="this.form"></app-login-email-validation>&ndash;&gt;-->
-<!--&lt;!&ndash;    <app-login-username-validation [loginForm]="form" [form]="this.form"></app-login-username-validation>&ndash;&gt;-->
+    <div class="wrapper">
+      <div class="first-last-name-errors-wrapper">
+        <div class="first-last-name-error-wrapper first-name-error-wrapper">
+          <app-register-text-validation [form]="form" [fieldName]="'first_name'"></app-register-text-validation>
+        </div>
+        <div class="first-last-name-error-wrapper last-name-error-wrapper">
+          <app-register-text-validation [form]="form" [fieldName]="'last_name'"></app-register-text-validation>
+        </div>
+      </div>
+    </div>
+
+
     <label>
       <input class="register-input" type="password" formControlName="password" placeholder="Password" required>
     </label>
-    <app-password-validation [loginForm]="this.form" [form]="this.form" ></app-password-validation>
+    <app-password-validation [loginForm]="this.form" [form]="this.form"></app-password-validation>
+
     <label>
-      <input class="register-input" type="password" formControlName="confirm_password" placeholder="Confirm password" required>
+      <input class="register-input" type="password" formControlName="confirm_password" placeholder="Confirm password"
+             required>
     </label>
+    <div class="wrapper">
+      <app-register-text-validation [form]="form" [fieldName]="'confirm_password'"></app-register-text-validation>
+    </div>
 
     <app-auth-terms-warning [termsLink]="'/terms'" [policyLink]="'/privacy-policy'"></app-auth-terms-warning>
-<!--&lt;!&ndash;    <app-password-validation [loginForm]="this.loginForm" [form]="this.form"  ></app-password-validation>&ndash;&gt;-->
-<!--&lt;!&ndash;    <div #error class="error"></div>&ndash;&gt;-->
-<!--    &lt;!&ndash;    <app-server-validation-error-message #error></app-server-validation-error-message>&ndash;&gt;-->
     <app-registration-submit-button [buttonValue]="'Sign Up'"></app-registration-submit-button>
     <app-form-text [text]="'Have an account?'" [linkText]="'Sign In'" [link]="'/login'"
                    [paddingBottom]="'login'"></app-form-text>

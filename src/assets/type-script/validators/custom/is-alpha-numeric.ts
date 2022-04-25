@@ -1,10 +1,6 @@
-import {AbstractControl, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
+import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
 
-export function getUsernameValidators(){
-  return [Validators.required, Validators.maxLength(128), alphaNumericValidator()];
-}
-
-function alphaNumericValidator(): ValidatorFn {
+export function alphaNumericValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const value = control.value;
     if (!value) {

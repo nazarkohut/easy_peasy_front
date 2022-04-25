@@ -39,3 +39,12 @@
   width: 135px;
 }
 
+.first-last-name-errors-wrapper {
+  width: 275px;
+  display: flex;
+  justify-content: space-between;
+
+  .first-last-name-error-wrapper {
+    width: 125px;
+  }
+}

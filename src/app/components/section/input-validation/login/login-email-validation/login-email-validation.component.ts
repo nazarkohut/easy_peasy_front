@@ -4,7 +4,7 @@ import {FormGroup} from "@angular/forms";
 @Component({
   selector: 'app-login-email-validation',
   templateUrl: './login-email-validation.component.html',
-  styleUrls: ['../validation-error-wrapper.scss', './login-email-validation.component.scss']
+  styleUrls: ['../../validation-error-wrapper.scss', './login-email-validation.component.scss']
 })
 export class LoginEmailValidationComponent implements OnInit {
   @Input() loginForm: FormGroup = {} as FormGroup;

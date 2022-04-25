@@ -1,0 +1,4 @@
+<div *ngIf="this.validateEmail()"
+     class="wrapper">
+  <app-validation-error-message [messageText]="this.getEmailError()"></app-validation-error-message>
+</div>

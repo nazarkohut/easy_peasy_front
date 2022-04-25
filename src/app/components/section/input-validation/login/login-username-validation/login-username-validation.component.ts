@@ -4,7 +4,7 @@ import {FormGroup} from "@angular/forms";
 @Component({
   selector: 'app-login-username-validation',
   templateUrl: './login-username-validation.component.html',
-  styleUrls: ['../validation-error-wrapper.scss', './login-username-validation.component.scss']
+  styleUrls: ['../../validation-error-wrapper.scss', './login-username-validation.component.scss']
 })
 export class LoginUsernameValidationComponent implements OnInit {
   @Input() loginForm: FormGroup = {} as FormGroup;
