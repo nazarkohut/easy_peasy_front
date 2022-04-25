@@ -32,6 +32,8 @@ import { EmailValidationComponent } from './components/section/input-validation/
 import { RegisterTextValidationComponent } from './components/section/input-validation/register-text-validation/register-text-validation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmPasswordValidationComponent } from './components/section/input-validation/confirm-password-validation/confirm-password-validation.component';
+import {RegistrationSuccessComponent} from "./components/pages/registration-success/registration-success.component";
+import { RegisterSuccessFormComponent } from './components/section/forms/register-success-form/register-success-form.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { ConfirmPasswordValidationComponent } from './components/section/input-v
     EmailValidationComponent,
     RegisterTextValidationComponent,
     ConfirmPasswordValidationComponent,
+    RegistrationSuccessComponent,
+    RegisterSuccessFormComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import {getServerErrorText} from "../../../../../assets/type-script/error/server
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['../../auth-form.scss', './login-form.component.scss']
+  styleUrls: ['../auth-form.scss', './login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
   @ViewChild('error') error: ElementRef;
@@ -70,9 +70,9 @@ export class LoginFormComponent implements OnInit {
     this.determineIfEmailOrUsername();
     this.error.nativeElement.textContent = String();
     this.form.markAllAsTouched();
-    // if (this.loginForm.errors){ // have to do something like this here
-    //   return
-    // }
+    if (this.loginForm.invalid){
+      return
+    }
     this.auth.login(this.loginForm.value).subscribe(
       {
         next: (data) => {

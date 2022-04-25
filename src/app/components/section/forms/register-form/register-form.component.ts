@@ -12,7 +12,7 @@ import {getServerErrorText} from "../../../../../assets/type-script/error/server
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['../../auth-form.scss', '../../input-validation/validation-error-wrapper.scss', './register-form.component.scss']
+  styleUrls: ['../auth-form.scss', '../../input-validation/validation-error-wrapper.scss', './register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
   form: FormGroup = new FormGroup({
@@ -35,7 +35,6 @@ export class RegisterFormComponent implements OnInit {
       if (!value) {
         return null;
       }
-      console.log(this.form.value?.password, value, this.form.value?.password === value)
       let areEqual = this.form.value?.password === value;
       return !areEqual ? {passwordDoesNotMatch: true} : null;
     }
@@ -45,10 +44,14 @@ export class RegisterFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.form.markAllAsTouched();
+    if (this.form.invalid){
+      return
+    }
     this.auth.register(this.form.value).subscribe(
       {
         next: (data) => {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/confirm-account']);
         },
         error: (error) => {
           let error_data = error?.error;
