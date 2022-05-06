@@ -8,22 +8,11 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 
 
 export class FormHeaderComponent implements OnInit {
-  @Input() text: string = '';
-  @Input() paddingTop: string = '';
-  @ViewChild('formHeader') p: ElementRef<HTMLParagraphElement>;
-  PADDINGS: any = {
-    'login': '25px',
-    'register': '30px'
-  }
+  @Input() type: string = '';
 
   constructor() {
-    this.p = {} as ElementRef;
   }
 
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit() {
-    this.p.nativeElement.style.paddingTop = this.PADDINGS[this.paddingTop];
   }
 }

@@ -1,5 +1,5 @@
 <section class="form-wrapper">
-  <app-form-header [text]="'Registration'" [paddingTop]="'register'"></app-form-header>
+  <app-form-header [type]="'registration'"></app-form-header>
   <form class="register-form" [formGroup]="form" (submit)="onSubmit()">
     <label>
       <input class="register-input" type="email" formControlName="email" placeholder="Email" required>
@@ -51,7 +51,6 @@
 
     <app-auth-terms-warning [termsLink]="'/terms'" [policyLink]="'/privacy-policy'"></app-auth-terms-warning>
     <app-registration-submit-button [buttonValue]="'Sign Up'"></app-registration-submit-button>
-    <app-form-text [text]="'Have an account?'" [linkText]="'Sign In'" [link]="'/login'"
-                   [paddingBottom]="'login'"></app-form-text>
+    <app-form-text [type]="'registration'" [linkTo]="'login'"></app-form-text>
   </form>
 </section>

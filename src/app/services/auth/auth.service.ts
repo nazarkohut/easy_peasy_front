@@ -15,7 +15,10 @@ export class AuthService {
   }
 
   login(loginData: { email: string, password: string } | { username: string, password: string }) {
-    return this.http.post(this.backendUrl + '/auth/users/login/', loginData)
+    return this.http.post<{
+      access: string,
+      refresh: string
+      }>(this.backendUrl + '/auth/users/login/', loginData)
   }
 
   register(registrationData:

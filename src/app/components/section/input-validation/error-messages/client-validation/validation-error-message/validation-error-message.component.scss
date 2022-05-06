@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
+  margin-top: 8px;
 
   .input_error_logo {
     display: inline;
@@ -15,5 +16,6 @@
     font-size: 14px;
     display: inline;
     font-family: "Dubai", monospace;
+    margin: 0;
   }
 }

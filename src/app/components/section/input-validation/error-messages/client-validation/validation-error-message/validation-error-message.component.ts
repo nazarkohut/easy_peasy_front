@@ -7,13 +7,9 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 })
 export class ValidationErrorMessageComponent implements OnInit {
   @Input() messageText: string = '';
-  // @Input() fieldName: string = '';
-  // @ViewChild('') p: ElementRef;
   constructor() { }
 
   ngOnInit(): void {
-    // if (this.fieldName === 'first_name' || this.fieldName === 'last_name'){
-    //
-    // }
+
   }
 }

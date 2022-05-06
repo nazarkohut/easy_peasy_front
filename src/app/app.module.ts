@@ -34,6 +34,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmPasswordValidationComponent } from './components/section/input-validation/confirm-password-validation/confirm-password-validation.component';
 import {RegistrationSuccessComponent} from "./components/pages/registration-success/registration-success.component";
 import { RegisterSuccessFormComponent } from './components/section/forms/register-success-form/register-success-form.component';
+import { FormHeaderDirective } from './directives/text-content/form-header/form-header.directive';
+import { FormTextDirective } from './directives/text-content/form-text/text/form-text.directive';
+import { FormTextLinkDirective } from './directives/text-content/form-text/link/form-text-link.directive';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { RegisterSuccessFormComponent } from './components/section/forms/registe
     RegisterTextValidationComponent,
     ConfirmPasswordValidationComponent,
     RegistrationSuccessComponent,
-    RegisterSuccessFormComponent
+    RegisterSuccessFormComponent,
+    FormHeaderDirective,
+    FormTextDirective,
+    FormTextLinkDirective,
   ],
   imports: [
     BrowserModule,

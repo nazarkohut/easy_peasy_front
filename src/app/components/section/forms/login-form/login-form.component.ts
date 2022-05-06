@@ -6,6 +6,7 @@ import {getPasswordValidators} from "../../../../../assets/type-script/validator
 import {getUsernameValidators} from "../../../../../assets/type-script/validators/fields/username";
 import {getEmailValidators} from "../../../../../assets/type-script/validators/fields/email";
 import {getServerErrorText} from "../../../../../assets/type-script/error/server";
+import {CookieService} from "../../../../services/jwt/cookie/cookie.service";
 
 @Component({
   selector: 'app-login-form',
@@ -20,8 +21,8 @@ export class LoginFormComponent implements OnInit {
   });
 
   loginForm: FormGroup = new FormGroup({})
-
-  constructor(private router: Router, private auth: AuthService) {
+  obj = Object
+  constructor(private router: Router, private auth: AuthService, private cookie: CookieService) {
     this.error = {} as ElementRef;
   }
 
@@ -70,26 +71,23 @@ export class LoginFormComponent implements OnInit {
     this.determineIfEmailOrUsername();
     this.error.nativeElement.textContent = String();
     this.form.markAllAsTouched();
-    if (this.loginForm.invalid){
+    if (this.loginForm.invalid) {
       return
     }
     this.auth.login(this.loginForm.value).subscribe(
       {
         next: (data) => {
+          this.cookie.setCookie('access_token', data.access, 2);
+          this.cookie.setCookie('refresh_token', data.refresh, 60);
           this.router.navigate(['/problem']);
         },
         error: (error) => {
           let error_data = error?.error;
           if (error_data.hasOwnProperty('detail')) {
-            console.log(this.error);
             this.error.nativeElement.textContent = getServerErrorText(error_data?.detail);
           } else if (error_data.hasOwnProperty('non_field_errors')) {
-            console.log(this.error);
             this.error.nativeElement.textContent = getServerErrorText(error_data?.non_field_errors);
           }
-          console.log(error);
-          console.log(error?.error?.detail);
-          console.log(error?.error?.non_field_errors?.[0]);
         }
       });
   }
