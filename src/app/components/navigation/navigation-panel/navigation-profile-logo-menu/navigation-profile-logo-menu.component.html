@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="navigation-profile-logo-menu.component.scss">
+<mat-menu #appMenu="matMenu" class="custom-profile-menu">
+  <ng-template matMenuContent>
+    <app-profile-menu-header></app-profile-menu-header>
+    <app-profile-menu-buttons></app-profile-menu-buttons>
+    <app-profile-menu-footer-decoration></app-profile-menu-footer-decoration>
+  </ng-template>
+</mat-menu>
+
+<button [matMenuTriggerFor]="appMenu" class="profile-logo-button">
+  <img class="profile-logo" src="assets/images/profile.png" alt="">
+</button>

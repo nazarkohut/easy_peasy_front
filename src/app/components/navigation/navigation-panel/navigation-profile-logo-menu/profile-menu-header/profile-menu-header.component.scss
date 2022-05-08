@@ -1,0 +1,29 @@
+.profile-menu-header {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-menu-logo {
+  width: 100px;
+  height: 100px;
+}
+
+.profile-menu-header-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-menu-header-text {
+  margin: 0;
+}
+
+.full-name {
+  font-size: 22px;
+  font-family: "Book Antiqua", monospace;
+}
+
+.username {
+  opacity: 50%;
+}

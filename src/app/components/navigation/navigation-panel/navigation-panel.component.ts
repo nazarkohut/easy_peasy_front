@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-navigation-panel',
@@ -7,12 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationPanelComponent implements OnInit {
 
-  navButtons: Array<{text: string, link: string}> = [{text:"Learning", link:""}, {text:"Problems", link:"problem"},
-    {text:"Tests", link:"test"}];
+  navButtons: Array<{ text: string, link: string }> = [{text: "Learning", link: ""}, {
+    text: "Problems",
+    link: "problem"
+  },
+    {text: "Tests", link: "test"}];
 
-  navAuthButtons: Array<{text: string, link: string}> = [{text:"Login", link:"login"}, {text:"Register", link:"registration"}];
+  navAuthButtons: Array<{ text: string, link: string }> = [{text: "Login", link: "login"}, {
+    text: "Register",
+    link: "registration"
+  }];
 
-  constructor() { }
+  profileLogoClick() {
+
+  }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
