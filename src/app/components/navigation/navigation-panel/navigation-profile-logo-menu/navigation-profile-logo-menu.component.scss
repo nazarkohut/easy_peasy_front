@@ -1,0 +1,27 @@
+.profile-logo {
+  width: 55px;
+  height: 55px;
+}
+
+.profile-logo-button {
+  border: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+::ng-deep .mat-menu-panel {
+  border-top-left-radius: 30px !important;
+  border-bottom-left-radius: 80px !important;
+}
+
+::ng-deep .custom-profile-menu {
+  padding-bottom: 0;
+}
+
+::ng-deep .mat-menu-content:not(:empty) {
+  padding-bottom: 0 !important;
+  overflow: hidden;
+}
+

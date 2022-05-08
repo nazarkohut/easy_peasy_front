@@ -37,6 +37,9 @@ import { RegisterSuccessFormComponent } from './components/section/forms/registe
 import { FormHeaderDirective } from './directives/text-content/form-header/form-header.directive';
 import { FormTextDirective } from './directives/text-content/form-text/text/form-text.directive';
 import { FormTextLinkDirective } from './directives/text-content/form-text/link/form-text-link.directive';
+import {MatSelectModule} from "@angular/material/select";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -79,6 +82,7 @@ import { FormTextLinkDirective } from './directives/text-content/form-text/link/
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
