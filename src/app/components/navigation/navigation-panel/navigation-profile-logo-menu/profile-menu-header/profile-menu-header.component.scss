@@ -1,7 +1,7 @@
 .profile-menu-header {
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 5px;
   margin-bottom: 10px;
 }
 
@@ -22,8 +22,18 @@
 .full-name {
   font-size: 22px;
   font-family: "Book Antiqua", monospace;
+  display: inline-block;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .username {
   opacity: 50%;
+  display: inline-block;
+  width: 75px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -26,7 +26,7 @@ export class AuthService {
     return this.http.post(this.backendUrl + '/auth/users/', registrationData)
   }
 
-  logout(logoutData: { refresh_token: string }) {
+  logout(logoutData: { refresh: string }) {
     return this.http.post(this.backendUrl + '/auth/users/logout/', logoutData);
   }
 }

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation-auth-button',
@@ -7,12 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation-auth-button.component.scss']
 })
 export class NavigationAuthButtonComponent implements OnInit {
-  @Input() navData: {text: string, link: string}={text: '', link: ''};
+  @Input() navData: { text: string, link: string } = {text: '', link: ''};
 
-  btnClick =  ()=>{
+  btnClick = () => {
     this.router.navigateByUrl(this.navData.link);
   }
-  constructor(private router: Router) { }
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }

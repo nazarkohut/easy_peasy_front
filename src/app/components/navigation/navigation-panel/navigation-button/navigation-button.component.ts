@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit, Input} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation-button',
@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation-button.component.scss']
 })
 export class NavigationButtonComponent implements OnInit {
-  @Input() navData: {text: string, link: string}={text: '', link: ''};
+  @Input() navData: { text: string, link: string } = {text: '', link: ''};
 
-  btnClick =  ()=>{
+  btnClick = () => {
     this.router.navigateByUrl(this.navData.link);
   }
 

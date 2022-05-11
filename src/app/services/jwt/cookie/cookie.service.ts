@@ -27,7 +27,7 @@ export class CookieService {
       while (c.charAt(0) === ' ') c = c.substring(1, c.length);
       if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
     }
-    return null;
+    return undefined;
   }
 
   clearCookie(name: string) {
@@ -41,8 +41,12 @@ export class CookieService {
     return this.getCookie('access_token');
   }
 
-  getRefreshToken(){
+  getRefreshToken() {
     return this.getCookie('refresh_token');
+  }
+
+  isAuthenticated() {
+    return this.getAccessToken() && this.getRefreshToken()
   }
 }
 

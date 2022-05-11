@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CookieService} from "../../../services/jwt/cookie/cookie.service";
 
 @Component({
   selector: 'app-navigation-panel',
@@ -18,11 +19,7 @@ export class NavigationPanelComponent implements OnInit {
     link: "registration"
   }];
 
-  profileLogoClick() {
-
-  }
-
-  constructor() {
+  constructor(public cookie: CookieService) {
   }
 
   ngOnInit(): void {

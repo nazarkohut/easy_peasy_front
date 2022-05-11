@@ -19,7 +19,7 @@ import { LoginFormComponent } from './components/section/forms/login-form/login-
 import {ReactiveFormsModule} from "@angular/forms";
 import { FormHeaderComponent } from './components/section/text-content/form-header/form-header.component';
 import { FormTextComponent } from './components/section/text-content/form-text/form-text.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { LoginEmailValidationComponent } from './components/section/input-validation/login/login-email-validation/login-email-validation.component';
 import { LoginUsernameValidationComponent } from './components/section/input-validation/login/login-username-validation/login-username-validation.component';
 import { PasswordValidationComponent } from './components/section/input-validation/password-validation/password-validation.component';
@@ -40,6 +40,7 @@ import { FormTextLinkDirective } from './directives/text-content/form-text/link/
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
+import {JwtInterceptor} from "./services/jwt/inceptor/jwt-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -84,7 +85,7 @@ import {MatMenuModule} from "@angular/material/menu";
     BrowserAnimationsModule,
     MatMenuModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
