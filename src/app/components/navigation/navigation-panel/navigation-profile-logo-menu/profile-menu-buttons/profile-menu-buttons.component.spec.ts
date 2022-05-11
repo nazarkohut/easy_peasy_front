@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ProfileMenuButtonsComponent } from './profile-menu-buttons.component';
+import {ProfileMenuButtonsComponent} from './profile-menu-buttons.component';
 
 describe('ProfileMenuButtonsComponent', () => {
   let component: ProfileMenuButtonsComponent;
@@ -8,9 +8,9 @@ describe('ProfileMenuButtonsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileMenuButtonsComponent ]
+      declarations: [ProfileMenuButtonsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

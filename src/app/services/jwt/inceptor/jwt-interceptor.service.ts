@@ -15,7 +15,7 @@ export class JwtInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (this.cookie.getAccessToken() !== null) {
+    if (this.cookie.getAccessToken() !== undefined) {
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${this.cookie.getAccessToken()}`

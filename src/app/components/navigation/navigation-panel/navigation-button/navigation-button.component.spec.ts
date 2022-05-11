@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NavigationButtonComponent } from './navigation-button.component';
+import {NavigationButtonComponent} from './navigation-button.component';
 
 describe('NavigationButtonComponent', () => {
   let component: NavigationButtonComponent;
@@ -8,9 +8,9 @@ describe('NavigationButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavigationButtonComponent ]
+      declarations: [NavigationButtonComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

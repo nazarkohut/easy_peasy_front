@@ -1,6 +1,6 @@
 @use '../../../../assets/styles/colors' as colors;
 
-.navbar{
+.navbar {
   display: flex;
   align-items: center;
   column-gap: 20px;
@@ -10,7 +10,7 @@
   padding: 10px 10px;
 }
 
-.right-auth-panel{
+.right-auth-panel {
   margin-left: auto;
   display: flex;
   column-gap: 15px;
