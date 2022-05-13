@@ -77,8 +77,7 @@ export class LoginFormComponent implements OnInit {
     this.auth.login(this.loginForm.value).subscribe(
       {
         next: (data) => {
-          this.cookie.setCookie('access_token', data.access, 2);
-          this.cookie.setCookie('refresh_token', data.refresh, 60);
+          this.cookie.setAllCookies(data.access, data.refresh);
           this.router.navigate(['/problem']);
         },
         error: (error) => {

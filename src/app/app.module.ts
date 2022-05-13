@@ -41,6 +41,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {JwtInterceptor} from "./services/jwt/inceptor/jwt-interceptor.service";
+import {AuthGuard} from "./services/guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -85,7 +86,7 @@ import {JwtInterceptor} from "./services/jwt/inceptor/jwt-interceptor.service";
     BrowserAnimationsModule,
     MatMenuModule,
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
+  providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

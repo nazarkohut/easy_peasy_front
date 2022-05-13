@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 
 @Injectable({
@@ -8,7 +8,9 @@ import {HttpClient} from "@angular/common/http";
 
 
 export class AuthService {
-
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   backendUrl = 'http://127.0.0.1:8000'
 
   constructor(private http: HttpClient) {
@@ -28,5 +30,18 @@ export class AuthService {
 
   logout(logoutData: { refresh: string }) {
     return this.http.post(this.backendUrl + '/auth/users/logout/', logoutData);
+  }
+
+  refreshToken(token: string) {
+    return this.http.post<{
+      access: string,
+      refresh: string
+    }>(this.backendUrl + '/auth/users/refresh/', {
+      refresh: token
+    }, this.httpOptions);
+  }
+
+  problem(){
+    return this.http.get(this.backendUrl + '/problem/all/', this.httpOptions);
   }
 }
