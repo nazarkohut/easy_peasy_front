@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../../services/auth/auth.service";
 
 @Component({
   selector: 'app-problem',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProblemComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) {
+    // this.auth.problem().subscribe()
+  }
 
   ngOnInit(): void {
+    this.auth.problem().subscribe()
+  }
+
+  ngAfterViewInit(){
+    this.auth.problem()
   }
 
 }

@@ -48,5 +48,10 @@ export class CookieService {
   isAuthenticated() {
     return this.getAccessToken() && this.getRefreshToken()
   }
+
+  setAllCookies(access: String | undefined, refresh: String | undefined){
+    this.setCookie("access_token", String(access),0.1);
+    this.setCookie("refresh_token", String(refresh),60);
+  }
 }
 
