@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../services/auth/auth.service";
+import {ProblemService} from "../../../services/problem/problem.service";
 
 @Component({
   selector: 'app-problem',
@@ -8,16 +8,11 @@ import {AuthService} from "../../../services/auth/auth.service";
 })
 export class ProblemComponent implements OnInit {
 
-  constructor(public auth: AuthService) {
-    // this.auth.problem().subscribe()
+  constructor(public problem: ProblemService) {
   }
 
   ngOnInit(): void {
-    this.auth.problem().subscribe()
-  }
-
-  ngAfterViewInit(){
-    this.auth.problem()
+    this.problem.problem().subscribe()
   }
 
 }
