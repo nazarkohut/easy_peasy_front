@@ -42,6 +42,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {JwtInterceptor} from "./services/jwt/inceptor/jwt-interceptor.service";
 import {AuthGuard} from "./services/guards/auth.guard";
+import {
+  NavigationProfileLogoMenuModule
+} from "./components/navigation/navigation-panel/navigation-profile-logo-menu/navigation-profile-logo-menu.module";
 
 @NgModule({
   declarations: [
@@ -84,7 +87,7 @@ import {AuthGuard} from "./services/guards/auth.guard";
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatMenuModule,
+    NavigationProfileLogoMenuModule,
   ],
   providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]

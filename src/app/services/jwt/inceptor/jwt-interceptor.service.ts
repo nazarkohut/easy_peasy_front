@@ -47,8 +47,8 @@ export class JwtInterceptor implements HttpInterceptor {
         return this.auth.refreshToken(token).pipe(
           switchMap((token: any) => {
             this.isRefreshing = false;
-            alert(token);
-            this.cookie.setAllCookies(token.access, token.refresh);
+            // alert(token);
+            this.cookie.setAllAuthCookies(token.access, token.refresh);
             this.refreshTokenSubject.next(token.access);
             request = this.getTokenHeader(request, token.access);
             return next.handle(request);
@@ -59,16 +59,12 @@ export class JwtInterceptor implements HttpInterceptor {
             console.log(err)
             this.cookie.clearCookie("access_token");
             this.cookie.clearCookie("refresh_token");
-            // this.tokenService.signOut();
             return throwError(err);
           }),
-          // finalize(() =>{
-          //   this.isRefreshing = true;
-          // })
         );
     }
     return this.refreshTokenSubject.pipe(
-      filter(token => token !== undefined),
+      filter(token => token !== null),
       take(1),
       switchMap((token) => next.handle(this.getTokenHeader(request, token)))
     );

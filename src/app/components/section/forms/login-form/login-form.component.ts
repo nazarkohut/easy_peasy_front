@@ -77,7 +77,7 @@ export class LoginFormComponent implements OnInit {
     this.auth.login(this.loginForm.value).subscribe(
       {
         next: (data) => {
-          this.cookie.setAllCookies(data.access, data.refresh);
+          this.cookie.setAllAuthCookies(data.access, data.refresh);
           this.router.navigate(['/problem']);
         },
         error: (error) => {

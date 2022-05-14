@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
@@ -49,9 +50,27 @@ export class CookieService {
     return this.getAccessToken() && this.getRefreshToken()
   }
 
-  setAllCookies(access: String | undefined, refresh: String | undefined){
+  setAllAuthCookies(access: String | undefined, refresh: String | undefined){
     this.setCookie("access_token", String(access),0.1);
     this.setCookie("refresh_token", String(refresh),60);
+    const accessTokenData = this.getDecodedToken();
+    this.setCookie('username', accessTokenData.username, 60)
+    this.setCookie('full_name', accessTokenData.full_name, 60)
+  }
+
+
+  getDecodedToken() {
+    const myRawToken: string | undefined = this.getAccessToken();
+    const helper = new JwtHelperService();
+    return helper.decodeToken(myRawToken);
+  }
+
+  getUsername() {
+    return this.getCookie('username');
+  }
+
+  getFullName() {
+    return this.getCookie('full_name');
   }
 }
 

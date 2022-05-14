@@ -13,30 +13,12 @@ import {JwtInterceptor} from "../../../../../services/jwt/inceptor/jwt-intercept
   providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}]
 })
 export class ProfileMenuHeaderComponent implements OnInit {
-  full_name = this.getFullName();
-  username = this.getUsername();
+  full_name = this.cookie.getFullName();
+  username = this.cookie.getUsername();
 
   constructor(private auth: AuthService, private cookie: CookieService) {
   }
 
   ngOnInit(): void {
-  }
-
-  getDecodedToken() {
-    const myRawToken: string | undefined = this.cookie.getCookie('access_token');
-    if (!myRawToken){
-
-    }
-    const helper = new JwtHelperService();
-    return helper.decodeToken(myRawToken);
-  }
-
-  getFullName() {
-    console.log(this.getDecodedToken());
-    return this.getDecodedToken().full_name;
-  }
-
-  getUsername() {
-    return this.getDecodedToken().username;
   }
 }
