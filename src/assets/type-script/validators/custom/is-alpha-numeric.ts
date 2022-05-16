@@ -33,6 +33,6 @@ function isAlpha(code: number) {
     (code >= getASCII('a') && code <= getASCII('z'));
 }
 
-function getASCII(ch: string): number {
+export function getASCII(ch: string): number {
   return ch.charCodeAt(0);
 }

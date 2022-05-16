@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 import {ProblemService} from "../../../services/problem/problem.service";
 
 @Component({
@@ -7,12 +8,15 @@ import {ProblemService} from "../../../services/problem/problem.service";
   styleUrls: ['./problem.component.scss']
 })
 export class ProblemComponent implements OnInit {
-
-  constructor(public problem: ProblemService) {
+  data: any = [];
+  constructor(private route: ActivatedRoute, private problem: ProblemService) {
   }
 
   ngOnInit(): void {
-    this.problem.problem().subscribe()
+    const id: string = String(this.route.snapshot.paramMap.get('id')); // change later (check if not null)
+    this.problem.getParticularProblem(id).subscribe(data =>{
+      this.data = data;
+      console.log(this.data)
+    })
   }
-
 }

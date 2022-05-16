@@ -1,0 +1,47 @@
+<div class="problems-header-menu">
+  <mat-form-field appearance="fill" [formGroup]="form" class="tags-form">
+    <mat-label>Tags</mat-label>
+    <mat-select [formControlName]="'tags'" multiple>
+      <mat-option *ngFor="let tagObj of details.tags" [value]="tagObj.id" (click)="onSelect()">{{tagObj.tag}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="table-wrapper">
+  <table mat-table [dataSource]="problemsActiveData" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> № </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="task">
+      <th mat-header-cell *matHeaderCellDef> Title</th>
+      <td mat-cell *matCellDef="let element" class="title"> {{element.task}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="complexity">
+      <th mat-header-cell *matHeaderCellDef> Complexity</th>
+
+      <td appComplexity mat-cell *matCellDef="let element" class="complexity">
+        {{ this.problemComplexity[element.complexity]}}
+        <!--      this.problemComplexity-->
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Success Rate">
+      <th mat-header-cell *matHeaderCellDef class="success-rate-header-cell">Success Rate</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-progress-bar class='success-bar' mode="determinate" [value]="(element.accepted / element.attempts) * 100" color="warn"></mat-progress-bar>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="problemsColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: problemsColumns;" (click)="OnProblemClick(row.id)"></tr>
+  </table>
+</div>
+
