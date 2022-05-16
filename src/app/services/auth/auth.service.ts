@@ -25,6 +25,10 @@ export class AuthService {
     return this.http.post(backendUrl + '/auth/users/', registrationData)
   }
 
+  activateAccount(activationData: {uid: string, token: string }){
+    return this.http.post(backendUrl + '/auth/users/activation/', activationData, httpOptions)
+  }
+
   logout(logoutData: { refresh: string }) {
     return this.http.post(backendUrl + '/auth/users/logout/', logoutData);
   }

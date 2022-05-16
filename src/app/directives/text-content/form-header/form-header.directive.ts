@@ -8,7 +8,8 @@ export class FormHeaderDirective {
   Texts: any = {
     'login': 'Sign In',
     'registration': 'Registration',
-    'registration_success': 'Thank you for registration'
+    'registration_success': 'Thank you for registration',
+    'account_activation': 'Congratulations'
   }
 
   constructor(private el: ElementRef) {

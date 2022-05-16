@@ -10,10 +10,13 @@ import {PrivacyPolicyComponent} from "./components/pages/privacy-policy/privacy-
 import {RegistrationSuccessComponent} from "./components/pages/registration-success/registration-success.component";
 import {AuthGuard} from "./services/guards/auth.guard";
 import {ProblemComponent} from "./components/pages/problem/problem.component";
+import {ActivateAccountComponent} from "./components/pages/activate-account/activate-account.component";
+import {PageNotFoundComponent} from "./components/pages/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
+  {path: 'activate/:uid/:token', component: ActivateAccountComponent},
   {path: 'problem', component: ProblemsComponent, canActivate: [AuthGuard]},
   {path: 'problem/:id', component: ProblemComponent, canActivate: [AuthGuard]},
   {path: 'tags/:tag', component: ProblemComponent, canActivate: [AuthGuard]},
@@ -21,7 +24,8 @@ const routes: Routes = [
   {path: 'terms', component: TermsComponent, canActivate: [AuthGuard]},
   {path: 'about', component: AboutComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
-  {path: 'confirm-account', component: RegistrationSuccessComponent}
+  {path: 'confirm-account', component: RegistrationSuccessComponent},
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

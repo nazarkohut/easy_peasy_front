@@ -1,0 +1,20 @@
+@use '../../../../../assets/styles/colors' as colors;
+
+.form-wrapper {
+  width: 550px;
+  min-height: 350px;
+  border-radius: 45px;
+  box-shadow: 3px 3px 4px 1px colors.$form-wrapper-shadow-color;
+}
+
+.congrats-logo {
+  width: 35%;
+  height: 35%;
+}
+
+.account-activation {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+}
