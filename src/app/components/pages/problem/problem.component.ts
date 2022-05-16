@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProblemService} from "../../../services/problem/problem.service";
 
 @Component({
@@ -9,14 +9,20 @@ import {ProblemService} from "../../../services/problem/problem.service";
 })
 export class ProblemComponent implements OnInit {
   data: any = [];
-  constructor(private route: ActivatedRoute, private problem: ProblemService) {
+
+  constructor(private route: Router, private activeRoute: ActivatedRoute, private problem: ProblemService) {
   }
 
   ngOnInit(): void {
-    const id: string = String(this.route.snapshot.paramMap.get('id')); // change later (check if not null)
-    this.problem.getParticularProblem(id).subscribe(data =>{
-      this.data = data;
-      console.log(this.data)
+    const id: string = String(this.activeRoute.snapshot.paramMap.get('id')); // change later (check if not null)
+    this.problem.getParticularProblem(id).subscribe({
+      next: (data) => {
+        this.data = data;
+        console.log(this.data)
+      },
+      error: (err =>{
+        this.route.navigate(['not-found']);
+      })
     })
   }
 }

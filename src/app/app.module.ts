@@ -50,6 +50,10 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { ComplexityDirective } from './directives/text-content/complexity/complexity.directive';
 import { ProblemComponent } from './components/pages/problem/problem.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { ActivateAccountComponent } from './components/pages/activate-account/activate-account.component';
+import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
+import { ActivateAccountFormComponent } from './components/section/forms/activate-account-form/activate-account-form.component';
+import { NotFoundFormComponent } from './components/section/forms/not-found-form/not-found-form.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +89,10 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     FormTextLinkDirective,
     ComplexityDirective,
     ProblemComponent,
+    ActivateAccountComponent,
+    PageNotFoundComponent,
+    ActivateAccountFormComponent,
+    NotFoundFormComponent,
   ],
     imports: [
         BrowserModule,

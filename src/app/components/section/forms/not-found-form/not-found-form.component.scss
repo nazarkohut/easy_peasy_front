@@ -1,0 +1,25 @@
+@use "../../../../../assets/styles/colors" as colors;
+
+.form-wrapper {
+  width: 500px;
+  min-height: 300px;
+  border-radius: 45px;
+  box-shadow: 2px 2px 2px 1px colors.$form-wrapper-shadow-color;
+}
+
+.not-found-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.page-not-found-smile {
+  margin-top: 3%;
+  width: 40%;
+  height: 40%;
+}
+
+.additional {
+  font-size: 26px;
+}
