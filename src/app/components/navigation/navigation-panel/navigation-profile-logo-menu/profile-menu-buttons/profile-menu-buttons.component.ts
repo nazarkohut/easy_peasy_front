@@ -21,8 +21,9 @@ export class ProfileMenuButtonsComponent implements OnInit {
     this.auth.logout({'refresh': String(refresh_token)}).subscribe(
       {
         next: (data) => {
+          console.log(data);
           this.router.navigate(['login']);
-        },
+        }, // here might be a slight problem with 401 error check this out later
         error: (error) => {
           console.log(error)
         }
@@ -30,6 +31,7 @@ export class ProfileMenuButtonsComponent implements OnInit {
     )
     this.cookie.clearCookie('access_token')
     this.cookie.clearCookie('refresh_token')
+    this.router.navigate(['login']);
   }
 
 }

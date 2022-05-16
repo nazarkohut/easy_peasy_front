@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { AppRoutingModule } from './routing.module';
 import { RegistrationComponent } from './components/pages/registration/registration.component';
-import { ProblemComponent } from './components/pages/problem/problem.component';
+import { ProblemsComponent } from './components/pages/problems/problems.component';
 import { NavigationPanelComponent } from './components/navigation/navigation-panel/navigation-panel.component';
 import {SiteNameModule} from "./components/navigation/navigation-panel/navigation-panel.module";
 import { FooterPanelComponent } from './components/footer/footer-panel/footer-panel.component';
@@ -45,13 +45,18 @@ import {AuthGuard} from "./services/guards/auth.guard";
 import {
   NavigationProfileLogoMenuModule
 } from "./components/navigation/navigation-panel/navigation-profile-logo-menu/navigation-profile-logo-menu.module";
+import {MatTableModule} from "@angular/material/table";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { ComplexityDirective } from './directives/text-content/complexity/complexity.directive';
+import { ProblemComponent } from './components/pages/problem/problem.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    ProblemComponent,
+    ProblemsComponent,
     NavigationPanelComponent,
     FooterPanelComponent,
     AboutComponent,
@@ -78,17 +83,23 @@ import {
     FormHeaderDirective,
     FormTextDirective,
     FormTextLinkDirective,
+    ComplexityDirective,
+    ProblemComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SiteNameModule,
-    FooterPanelModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NavigationProfileLogoMenuModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SiteNameModule,
+        FooterPanelModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NavigationProfileLogoMenuModule,
+        MatTableModule,
+        MatProgressBarModule,
+        MatSelectModule,
+        MatButtonToggleModule,
+    ],
   providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
