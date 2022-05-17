@@ -2,22 +2,45 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {backendUrl, httpOptions} from "../constants";
 
+export interface RegistrationData {
+  email: string,
+  username: string,
+  first_name: string,
+  last_name: string,
+  password: string
+}
+
+export interface UsernameLoginRequestData {
+  username: string,
+  password: string
+}
+
+export interface EmailLoginRequestData {
+  email: string,
+  password: string
+}
+
+export interface AccessRefreshTokens {
+  access: string,
+  refresh: string
+}
+
+export interface AccountActivation {
+  uid: string,
+  token: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class AuthService {
 
   constructor(private http: HttpClient) {
   }
 
-  login(loginData: { email: string, password: string } | { username: string, password: string }) {
-    return this.http.post<{
-      access: string,
-      refresh: string
-      }>(backendUrl + '/auth/users/login/', loginData)
+  login(loginData: EmailLoginRequestData | UsernameLoginRequestData) {
+    return this.http.post<AccessRefreshTokens>(backendUrl + '/auth/users/login/', loginData)
   }
 
   register(registrationData:
@@ -25,7 +48,7 @@ export class AuthService {
     return this.http.post(backendUrl + '/auth/users/', registrationData)
   }
 
-  activateAccount(activationData: {uid: string, token: string }){
+  activateAccount(activationData: AccountActivation) {
     return this.http.post(backendUrl + '/auth/users/activation/', activationData, httpOptions)
   }
 
@@ -34,10 +57,7 @@ export class AuthService {
   }
 
   refreshToken(token: string) {
-    return this.http.post<{
-      access: string,
-      refresh: string
-    }>(backendUrl + '/auth/users/refresh/', {
+    return this.http.post<AccessRefreshTokens>(backendUrl + '/auth/users/refresh/', {
       refresh: token
     }, httpOptions);
   }

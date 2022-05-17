@@ -41,7 +41,7 @@ export class ProblemsComponent implements OnInit {
     if (this.form.value.tags.length === 0){
       this.problemsActiveData = this.problemsData;
     } else{
-      this.problem.getProblemsSortedByTag(this.form.value.tags).subscribe(data => {
+      this.problem.getProblemsSortedByTags(this.form.value.tags).subscribe(data => {
         this.problemsActiveData = data;
       })
     }

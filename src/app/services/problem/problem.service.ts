@@ -38,7 +38,7 @@ export class ProblemService {
     return this.http.get(backendUrl + '/problem/details/', httpOptions);
   }
 
-  getProblemsSortedByTag(ids: Array<number>){
+  getProblemsSortedByTags(ids: Array<number>){
     let queryParams = new HttpParams();
     queryParams = queryParams.appendAll({'tag_id': ids});
     console.log("params: ", queryParams.toString())
@@ -46,6 +46,6 @@ export class ProblemService {
   }
 
   getParticularProblem(id: string) {
-    return this.http.get<[ParticularProblem]>(backendUrl + '/problem/' + id, httpOptions);
+    return this.http.get<ParticularProblem>(backendUrl + '/problem/' + id, httpOptions);
   }
 }
