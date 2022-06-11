@@ -12,6 +12,8 @@ import {AuthGuard} from "./services/guards/auth.guard";
 import {ProblemComponent} from "./components/pages/problem/problem.component";
 import {ActivateAccountComponent} from "./components/pages/activate-account/activate-account.component";
 import {PageNotFoundComponent} from "./components/pages/page-not-found/page-not-found.component";
+import {LearningComponent} from "./components/pages/learning/learning.component";
+import {TestsComponent} from "./components/pages/tests/tests.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
   {path: 'confirm-account', component: RegistrationSuccessComponent},
+  {path: 'learning', component: LearningComponent, canActivate: [AuthGuard]},
+  {path: 'tests', component: TestsComponent, canActivate: [AuthGuard]},
   { path: '**', component: PageNotFoundComponent }
 ];
 

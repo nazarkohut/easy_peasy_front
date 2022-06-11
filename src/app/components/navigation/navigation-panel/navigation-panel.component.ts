@@ -8,11 +8,11 @@ import {CookieService} from "../../../services/jwt/cookie/cookie.service";
 })
 export class NavigationPanelComponent implements OnInit {
 
-  navButtons: Array<{ text: string, link: string }> = [{text: "Learning", link: ""}, {
+  navButtons: Array<{ text: string, link: string }> = [{text: "Learning", link: "learning"}, {
     text: "Problems",
     link: "problem"
   },
-    {text: "Tests", link: "test"}];
+    {text: "Tests", link: "tests"}];
 
   navAuthButtons: Array<{ text: string, link: string }> = [{text: "Login", link: "login"}, {
     text: "Register",

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {backendUrl, httpOptions} from "../constants";
 import {HttpClient, HttpParams} from "@angular/common/http";
+import {SubtopicProblems, Tag} from "../../components/pages/problems/problems.component";
 
 export interface AllProblems {
   id: number,
@@ -21,6 +22,10 @@ export interface ParticularProblem {
   task: string
 }
 
+export interface AllProblemsTags {
+  tags: Array<Tag>;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,14 +36,18 @@ export class ProblemService {
   }
 
   getAllProblems() {
-    return this.http.get<[AllProblems]>(backendUrl + '/problem/all/', httpOptions);
+    return this.http.get<[AllProblems]>(backendUrl + '/problem/all/');
   }
 
-  getAllProblemsDetails(){
-    return this.http.get(backendUrl + '/problem/details/', httpOptions);
+  getAllProblemsTags() {
+    return this.http.get<AllProblemsTags>(backendUrl + '/tags/all/', httpOptions);
   }
 
-  getProblemsSortedByTags(ids: Array<number>){
+  getAllProblemsTopics() {
+    return this.http.get(backendUrl + '/topics/', httpOptions);
+  }
+
+  getProblemsSortedByTags(ids: Array<number>) {
     let queryParams = new HttpParams();
     queryParams = queryParams.appendAll({'tag_id': ids});
     console.log("params: ", queryParams.toString())
@@ -47,5 +56,9 @@ export class ProblemService {
 
   getParticularProblem(id: string) {
     return this.http.get<ParticularProblem>(backendUrl + '/problem/' + id, httpOptions);
+  }
+
+  getSubtopicProblems(id: string){
+    return this.http.get<[SubtopicProblems]>(backendUrl + '/topics/subtopic/' + id, httpOptions)
   }
 }

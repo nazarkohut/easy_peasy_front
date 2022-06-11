@@ -54,6 +54,8 @@ import { ActivateAccountComponent } from './components/pages/activate-account/ac
 import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
 import { ActivateAccountFormComponent } from './components/section/forms/activate-account-form/activate-account-form.component';
 import { NotFoundFormComponent } from './components/section/forms/not-found-form/not-found-form.component';
+import { LearningComponent } from './components/pages/learning/learning.component';
+import { TestsComponent } from './components/pages/tests/tests.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +95,8 @@ import { NotFoundFormComponent } from './components/section/forms/not-found-form
     PageNotFoundComponent,
     ActivateAccountFormComponent,
     NotFoundFormComponent,
+    LearningComponent,
+    TestsComponent,
   ],
     imports: [
         BrowserModule,
