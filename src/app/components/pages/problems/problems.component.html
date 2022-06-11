@@ -2,7 +2,22 @@
   <mat-form-field appearance="fill" [formGroup]="form" class="tags-form">
     <mat-label>Tags</mat-label>
     <mat-select [formControlName]="'tags'" multiple>
-      <mat-option *ngFor="let tagObj of details.tags" [value]="tagObj.id" (click)="onSelect()">{{tagObj.tag}}</mat-option>
+      <mat-option *ngFor="let tagObj of details.tags" [value]="tagObj.id" (click)="onTagsSelect()">{{tagObj.tag}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" [formGroup]="form" class="tags-form">
+    <mat-label>Topics</mat-label>
+    <mat-select [formControlName]="'topics'">
+      <mat-option (click)="clearTopics()">None</mat-option>
+      <mat-option *ngFor="let topicObj of details.topics" [value]="topicObj" (click)="onTopicsSelect()">{{topicObj.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" [formGroup]="form" class="tags-form">
+    <mat-label>Subtopics</mat-label>
+    <mat-select [formControlName]="'subtopics'">
+<!--      Perhaps, I will add multiple option to subtopics soon. Just have to think about it.-->
+<!--      have to change sub_topic to subtopic(backend)-->
+      <mat-option *ngFor="let subtopicObj of form.value.topics?.sub_topics" [value]="subtopicObj.id" (click)="onSubtopicSelect()">{{subtopicObj.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
