@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../auth-form.scss', './register-success-form.component.scss']
 })
 export class RegisterSuccessFormComponent implements OnInit {
-  redirectButton: Array<{ text: string, link: string }> = [{text: 'Resend email', link: 'login'}];
+  redirectButton: Array<{ text: string, link: string }> = [{text: 'Resend email', link: 'resend/email'}];
   constructor() { }
 
   ngOnInit(): void {

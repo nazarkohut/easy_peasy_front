@@ -56,6 +56,7 @@ import { ActivateAccountFormComponent } from './components/section/forms/activat
 import { NotFoundFormComponent } from './components/section/forms/not-found-form/not-found-form.component';
 import { LearningComponent } from './components/pages/learning/learning.component';
 import { TestsComponent } from './components/pages/tests/tests.component';
+import { ResendAccountActivationEmailComponent } from './components/pages/resend-account-activation-email/resend-account-activation-email.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { TestsComponent } from './components/pages/tests/tests.component';
     NotFoundFormComponent,
     LearningComponent,
     TestsComponent,
+    ResendAccountActivationEmailComponent,
   ],
     imports: [
         BrowserModule,
