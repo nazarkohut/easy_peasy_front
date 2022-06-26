@@ -83,11 +83,11 @@ export class ProblemsComponent implements OnInit {
   onTopicsSelect() {
     console.log("topic from form", this.form.value.topics)
     if (this.form.value.topics.length === 0) {
-      this.form.controls['tags'].enable()
-      this.form.controls['subtopics'].disable()
+      this.form.controls['tags'].enable();
+      this.form.controls['subtopics'].disable();
     } else {
-      this.form.controls['tags'].disable()
-      this.form.controls['subtopics'].enable()
+      this.form.controls['tags'].disable();
+      this.form.controls['subtopics'].enable();
     }
   }
 
@@ -127,6 +127,7 @@ export class ProblemsComponent implements OnInit {
   }
 
   clearTopics() {
+    this.problemsActiveData = this.problemsData;
     this.form.controls['subtopics'].setValue('');
     this.form.controls['tags'].enable()
     this.form.controls['subtopics'].disable()

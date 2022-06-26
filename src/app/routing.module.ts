@@ -14,6 +14,9 @@ import {ActivateAccountComponent} from "./components/pages/activate-account/acti
 import {PageNotFoundComponent} from "./components/pages/page-not-found/page-not-found.component";
 import {LearningComponent} from "./components/pages/learning/learning.component";
 import {TestsComponent} from "./components/pages/tests/tests.component";
+import {
+  ResendAccountActivationEmailComponent
+} from "./components/pages/resend-account-activation-email/resend-account-activation-email.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -29,6 +32,7 @@ const routes: Routes = [
   {path: 'confirm-account', component: RegistrationSuccessComponent},
   {path: 'learning', component: LearningComponent, canActivate: [AuthGuard]},
   {path: 'tests', component: TestsComponent, canActivate: [AuthGuard]},
+  {path: 'resend/email', component: ResendAccountActivationEmailComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
