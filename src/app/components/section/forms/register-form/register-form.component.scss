@@ -6,7 +6,10 @@
 }
 
 .register-form {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; // do not remove this one it is needed
   height: 100%;
 }
 
@@ -49,15 +52,11 @@
   }
 }
 
-.error {
-  // temporary styles
-  display: inline-block;
-  text-align: center;
-  margin-top: 10px;
-  color: #BD0013;
-}
-
 .server-error-wrapper{
   display: flex;
   justify-content: center;
+}
+
+.register-validation-error{
+  max-width: 260px;
 }
