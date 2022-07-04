@@ -1,1 +1,2 @@
-<button type="button" (click)="btnClick()" class="header-nav-auth-button">{{navData.text}} </button>
+<button class="greeny-stroked-button" type="button"
+        (click)="this.router.navigateByUrl(this.navData.link)">{{navData.text}} </button>

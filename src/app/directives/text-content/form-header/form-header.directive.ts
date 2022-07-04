@@ -9,7 +9,8 @@ export class FormHeaderDirective {
     'login': 'Sign In',
     'registration': 'Registration',
     'registration_success': 'Thank you for registration',
-    'account_activation': 'Congratulations'
+    'account_activation': 'Congratulations',
+    'resend_email_form': "Re-send Account Activation Email"
   }
 
   constructor(private el: ElementRef) {

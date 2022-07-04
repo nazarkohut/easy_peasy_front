@@ -46,7 +46,11 @@
     <div class="wrapper">
       <app-confirm-password-validation [form]="form"></app-confirm-password-validation>
     </div>
-    <div #error class="error"></div>
+<!--    <div #error class="error"></div>-->
+    <div class="server-error-wrapper">
+      <app-server-validation-error-message [messageText]="errorMessage"></app-server-validation-error-message>
+    </div>
+
 
 
     <app-auth-terms-warning [termsLink]="'/terms'" [policyLink]="'/privacy-policy'"></app-auth-terms-warning>

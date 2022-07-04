@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ProblemService} from "../../../services/problem/problem.service";
 import {ProblemComplexity} from "../../../../assets/type-script/enums/complexity";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
-import {backendUrl, httpOptions} from "../../../services/constants";
 
 export interface Tag {
   id: String,
