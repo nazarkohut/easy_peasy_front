@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {getPasswordValidators} from "../../../../../assets/type-script/validators/fields/password";
 import {getEmailValidators} from "../../../../../assets/type-script/validators/fields/email";
@@ -23,11 +23,9 @@ export class RegisterFormComponent implements OnInit {
     password: new FormControl('', getPasswordValidators()),
     confirm_password: new FormControl('', [Validators.required, this.confirmPasswordValidator()])
   });
-  // @ViewChild('error') error: ElementRef;
   errorMessage: string = '';
 
   constructor(private router: Router, private auth: AuthService) {
-    // this.error = {} as ElementRef;
   }
 
   confirmPasswordValidator(): ValidatorFn {
@@ -58,16 +56,6 @@ export class RegisterFormComponent implements OnInit {
         error: (error) => {
           let error_data = error?.error;
           this.errorMessage = getServerErrorText(error_data);
-          // if (error_data.hasOwnProperty('detail')) {
-          //   // console.log(this.error);
-          //   this.error.nativeElement.textContent = getServerErrorText(error_data?.detail);
-          // } else if (error_data.hasOwnProperty('non_field_errors')) {
-          //   console.log(this.error);
-          //   this.error.nativeElement.textContent = getServerErrorText(error_data?.non_field_errors);
-          // }
-          // console.log(error);
-          // console.log(error?.error?.detail);
-          // console.log(error?.error?.non_field_errors?.[0]);
         }
       });
     console.log(this.form);
