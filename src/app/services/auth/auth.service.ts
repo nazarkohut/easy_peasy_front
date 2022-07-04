@@ -30,6 +30,10 @@ export interface AccountActivation {
   token: string
 }
 
+export interface ResendAccountActivation {
+  email: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -48,10 +52,6 @@ export class AuthService {
     return this.http.post(backendUrl + '/auth/users/', registrationData)
   }
 
-  activateAccount(activationData: AccountActivation) {
-    return this.http.post(backendUrl + '/auth/users/activation/', activationData, httpOptions)
-  }
-
   logout(logoutData: { refresh: string }) {
     return this.http.post(backendUrl + '/auth/users/logout/', logoutData);
   }
@@ -60,5 +60,13 @@ export class AuthService {
     return this.http.post<AccessRefreshTokens>(backendUrl + '/auth/users/refresh/', {
       refresh: token
     }, httpOptions);
+  }
+
+  activateAccount(activationData: AccountActivation) {
+    return this.http.post(backendUrl + '/auth/users/activation/', activationData, httpOptions)
+  }
+
+  resendActivation(resendActivationData: ResendAccountActivation){
+    return this.http.post(backendUrl + '/auth/users/resend_activation/', resendActivationData)
   }
 }

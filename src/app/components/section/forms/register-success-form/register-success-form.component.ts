@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register-success-form',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterSuccessFormComponent implements OnInit {
   redirectButton: Array<{ text: string, link: string }> = [{text: 'Resend email', link: 'resend/email'}];
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }

@@ -3,6 +3,6 @@
   <div class="confirm-account-wrapper">
     <img src="assets/images/logos/сonfirm_account_logo.png" alt="" class="confirm-account-logo">
     <p class="message">Congrats! We sent activation link on your email. Please, check your inbox and spam folders and follow our instructions.</p>
-    <app-navigation-auth-button *ngFor="let item of redirectButton" [navData]=item></app-navigation-auth-button>
+    <button class="greeny-stroked-button" *ngFor="let item of redirectButton" (click)="this.router.navigateByUrl(item.link)"> {{item.text}}</button>
   </div>
 </section>
