@@ -2,7 +2,7 @@
   <app-form-header [type]="'resend_email_form'"></app-form-header>
   <form class="resend-email-form" [formGroup]="form" (submit)="onSubmit()">
     <label>
-      <input class="resend-email-input" type="email" formControlName="email" placeholder="Email" required>
+      <input class="resend-email-input" type="email" formControlName="email" placeholder="Email" maxlength="500" required>
     </label>
     <app-email-validation [form]="form"></app-email-validation>
     <app-server-validation-error-message  [messageText]="errorMessage"></app-server-validation-error-message>

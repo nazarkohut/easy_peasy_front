@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthService} from "../../../../services/auth/auth.service";
 import {Router} from "@angular/router";
@@ -14,7 +14,6 @@ import {CookieService} from "../../../../services/jwt/cookie/cookie.service";
   styleUrls: ['../auth-form.scss', './login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  // @ViewChild('error') error: ElementRef;
   form: FormGroup = new FormGroup({
     email_or_username: new FormControl(''),
     password: new FormControl('')
@@ -24,7 +23,6 @@ export class LoginFormComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({})
   obj = Object
   constructor(private router: Router, private auth: AuthService, private cookie: CookieService) {
-    // this.error = {} as ElementRef;
   }
 
   determineIfEmailOrUsername(): FormGroup {
@@ -71,7 +69,6 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     this.determineIfEmailOrUsername();
     this.errorMessage = String();
-    // this.error.nativeElement.textContent = String();
     this.form.markAllAsTouched();
     if (this.loginForm.invalid) {
       return
@@ -85,11 +82,6 @@ export class LoginFormComponent implements OnInit {
         error: (error) => {
           let error_data = error?.error;
           this.errorMessage = getServerErrorText(error_data);
-          // if (error_data.hasOwnProperty('detail')) {
-          //   this.error.nativeElement.textContent = getServerErrorText(error_data?.detail);
-          // } else if (error_data.hasOwnProperty('non_field_errors')) {
-          //   this.error.nativeElement.textContent = getServerErrorText(error_data?.non_field_errors);
-          // }
         }
       });
   }
