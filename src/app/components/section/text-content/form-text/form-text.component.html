@@ -1,3 +1,8 @@
-<p class="form-text" [appFormText]="type">
-  <a [appFormTextLink]="linkTo" [routerLink]="'/' + linkTo">Link</a>
-</p>
+<div class="form-text" [appFormText]="type">
+  <a [appFormTextLink]="linkTo" [routerLink]="'/' + linkTo">Link </a>
+  <ng-container *ngIf="additionalLink">
+    <br>
+    <a [appFormText]="additionalLink" [routerLink]="'/' + additionalLink"></a>
+  </ng-container>
+</div>
+

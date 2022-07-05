@@ -8,6 +8,7 @@ import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 export class FormTextComponent implements OnInit {
   @Input() type: string = '';
   @Input() linkTo: string = '';
+  @Input() additionalLink: string = '';
 
   constructor() {
   }

@@ -2,12 +2,12 @@
   <app-form-header [type]="'registration'"></app-form-header>
   <form class="register-form" [formGroup]="form" (submit)="onSubmit()">
     <label>
-      <input class="register-input" type="email" formControlName="email" placeholder="Email" required>
+      <input class="register-input" type="email" formControlName="email" placeholder="Email" maxlength="500" required>
     </label>
     <app-email-validation [form]="form" class="register-validation-error"></app-email-validation>
 
     <label>
-      <input class="register-input" type="text" formControlName="username" placeholder="Username" required>
+      <input class="register-input" type="text" formControlName="username" placeholder="Username" maxlength="500" required>
     </label>
     <app-register-text-validation [form]="form" [fieldName]="'username'"
                                   class="register-validation-error"></app-register-text-validation>
@@ -15,12 +15,12 @@
     <div class="first-last-name-wrapper">
       <label class="first-last-name-label">
         <input class="register-input first-last-name" type="text" formControlName="first_name" placeholder="First name"
-               required>
+               maxlength="300" required>
       </label>
 
       <label class="first-last-name-label">
         <input class="register-input first-last-name" type="text" formControlName="last_name" placeholder="Last name"
-               required>
+               maxlength="300" required>
       </label>
 
 
@@ -35,14 +35,14 @@
     </div>
 
     <label>
-      <input class="register-input" type="password" formControlName="password" placeholder="Password" required>
+      <input class="register-input" type="password" formControlName="password" placeholder="Password" maxlength="500" required>
     </label>
     <app-password-validation [loginForm]="this.form" [form]="this.form"
                              class="register-validation-error"></app-password-validation>
 
     <label>
       <input class="register-input" type="password" formControlName="confirm_password" placeholder="Confirm password"
-             required>
+             maxlength="500" required>
     </label>
     <app-confirm-password-validation [form]="form" class="register-validation-error"></app-confirm-password-validation>
 

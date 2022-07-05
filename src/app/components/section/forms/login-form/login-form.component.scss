@@ -27,18 +27,7 @@
 
 .login-form {
   text-align: center;
-}
-
-.error {
-  // temporary styles
-  display: inline-block;
-  text-align: center;
-  margin-top: 10px;
-  color: #BD0013;
-  //color: #CE5E66;
-}
-
-.server-error-wrapper{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
