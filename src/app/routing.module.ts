@@ -17,6 +17,7 @@ import {TestsComponent} from "./components/pages/tests/tests.component";
 import {
   ResendAccountActivationEmailComponent
 } from "./components/pages/resend-account-activation-email/resend-account-activation-email.component";
+import {ResetPasswordComponent} from "./components/pages/reset-password/reset-password.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: 'learning', component: LearningComponent, canActivate: [AuthGuard]},
   {path: 'tests', component: TestsComponent, canActivate: [AuthGuard]},
   {path: 'resend/email', component: ResendAccountActivationEmailComponent},
+  {path: 'forgot-password', component: ResetPasswordComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

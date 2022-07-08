@@ -34,6 +34,10 @@ export interface ResendAccountActivation {
   email: string
 }
 
+export interface ResetPassword{
+
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -68,5 +72,9 @@ export class AuthService {
 
   resendActivation(resendActivationData: ResendAccountActivation){
     return this.http.post(backendUrl + '/auth/users/resend_activation/', resendActivationData)
+  }
+
+  resetPassword(resetPasswordData: ResetPassword){
+    return this.http.post(backendUrl + '/auth/users/reset_password/', resetPasswordData);
   }
 }

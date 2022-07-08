@@ -25,8 +25,6 @@ import { LoginUsernameValidationComponent } from './components/section/input-val
 import { PasswordValidationComponent } from './components/section/input-validation/password-validation/password-validation.component';
 import { ValidationErrorMessageComponent } from './components/section/input-validation/error-messages/client-validation/validation-error-message/validation-error-message.component';
 import { ServerValidationErrorMessageComponent } from './components/section/input-validation/error-messages/server-validation-error-message/server-validation-error-message.component';
-import { LoginSubmitButtonComponent } from './components/section/buttons/login-submit-button/login-submit-button.component';
-import { RegistrationSubmitButtonComponent } from './components/section/buttons/registration-submit-button/registration-submit-button.component';
 import { AuthTermsWarningComponent } from './components/section/text-content/auth-terms-warning/auth-terms-warning.component';
 import { EmailValidationComponent } from './components/section/input-validation/email-validation/email-validation.component';
 import { RegisterTextValidationComponent } from './components/section/input-validation/register-text-validation/register-text-validation.component';
@@ -38,8 +36,6 @@ import { FormHeaderDirective } from './directives/text-content/form-header/form-
 import { FormTextDirective } from './directives/text-content/form-text/text/form-text.directive';
 import { FormTextLinkDirective } from './directives/text-content/form-text/link/form-text-link.directive';
 import {MatSelectModule} from "@angular/material/select";
-import {MatIconModule} from "@angular/material/icon";
-import {MatMenuModule} from "@angular/material/menu";
 import {JwtInterceptor} from "./services/jwt/inceptor/jwt-interceptor.service";
 import {AuthGuard} from "./services/guards/auth.guard";
 import {
@@ -58,6 +54,9 @@ import { LearningComponent } from './components/pages/learning/learning.componen
 import { TestsComponent } from './components/pages/tests/tests.component';
 import { ResendAccountActivationEmailComponent } from './components/pages/resend-account-activation-email/resend-account-activation-email.component';
 import { ResendEmailFormComponent } from './components/section/forms/resend-email-form/resend-email-form.component';
+import { ResetPasswordComponent } from './components/pages/reset-password/reset-password.component';
+import { ResetPasswordFormComponent } from './components/section/forms/reset-password-form/reset-password-form.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
     declarations: [
@@ -80,8 +79,6 @@ import { ResendEmailFormComponent } from './components/section/forms/resend-emai
         PasswordValidationComponent,
         ValidationErrorMessageComponent,
         ServerValidationErrorMessageComponent,
-        LoginSubmitButtonComponent,
-        RegistrationSubmitButtonComponent,
         AuthTermsWarningComponent,
         EmailValidationComponent,
         RegisterTextValidationComponent,
@@ -101,26 +98,27 @@ import { ResendEmailFormComponent } from './components/section/forms/resend-emai
         TestsComponent,
         ResendAccountActivationEmailComponent,
         ResendEmailFormComponent,
-        // CustomButtonComponent,
+        ResetPasswordComponent,
+        ResetPasswordFormComponent,
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        SiteNameModule,
-        FooterPanelModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        NavigationProfileLogoMenuModule,
-        MatTableModule,
-        MatProgressBarModule,
-        MatSelectModule,
-        MatButtonToggleModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SiteNameModule,
+    FooterPanelModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NavigationProfileLogoMenuModule,
+    MatTableModule,
+    MatProgressBarModule,
+    MatSelectModule,
+    MatButtonToggleModule,
+    MatIconModule,
+  ],
     providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   exports: [
     AboutComponent,
-    // CustomButtonComponent
   ],
     bootstrap: [AppComponent]
 })

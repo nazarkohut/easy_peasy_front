@@ -1,6 +1,6 @@
-@use '../../../../assets/styles/colors' as colors;
+@use '../../assets/styles/colors' as colors;
 
-.submit-button {
+.solid-button{
   background: colors.$submit-button-color;
   border-radius: 6px;
   transition: 0.5s ease;
