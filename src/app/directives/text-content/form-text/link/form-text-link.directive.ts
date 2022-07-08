@@ -10,8 +10,9 @@ export class FormTextLinkDirective {
   }
 
   Texts: any = {
-    'registration': "Create an account",
+    'registration': "Sign Up",
     'login': "Sign In",
+    'forgot-password': 'forgot-password'
   }
 
   ngOnInit(): void {

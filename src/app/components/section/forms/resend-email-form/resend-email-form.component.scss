@@ -1,0 +1,20 @@
+@use '../../../../../assets/styles/colors' as colors;
+
+.form-wrapper {
+  min-height: 250px;
+  width: 500px;
+}
+
+.resend-email-form{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.resend-email-button{
+  margin: 9% 0 7% 0;
+}
+
+

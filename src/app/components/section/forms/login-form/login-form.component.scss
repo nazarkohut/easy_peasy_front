@@ -27,13 +27,11 @@
 
 .login-form {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.error {
-  // temporary styles
-  display: inline-block;
-  text-align: center;
-  margin-top: 10px;
-  color: #BD0013;
-  //color: #CE5E66;
+.submit-button{
+  margin: 45px 0 6px 175px;
 }

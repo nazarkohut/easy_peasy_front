@@ -9,6 +9,7 @@ export class FormTextDirective {
   Texts: any = {
     'login': "Do not have an account? ",
     'registration': "Have an account? ",
+    'forgot-password': "Forgot password?"
   }
 
   constructor(private el: ElementRef) {

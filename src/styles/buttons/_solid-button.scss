@@ -1,0 +1,19 @@
+@use '../../assets/styles/colors' as colors;
+
+.solid-button{
+  background: colors.$submit-button-color;
+  border-radius: 6px;
+  transition: 0.5s ease;
+  width: 100px;
+  height: 40px;
+  margin: 45px 0 6px 175px;
+  border-color: transparent;
+  color: colors.$white;
+  font-family: "Bookman Old Style", monospace;
+
+  &:hover {
+    background: colors.$submit-button-hover-color;
+    box-shadow: 2px 2px 5px 1px colors.$submit-button-hover-shadow-color;
+    cursor: pointer;
+  }
+}

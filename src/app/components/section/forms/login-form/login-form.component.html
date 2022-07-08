@@ -2,19 +2,21 @@
   <app-form-header [type]="'login'"></app-form-header>
   <form class="login-form" [formGroup]="form" (submit)="onSubmit()">
     <label>
-      <input class="login-input" type="email" formControlName="email_or_username" placeholder="Email or username" required>
+      <input class="login-input" type="email" formControlName="email_or_username" placeholder="Email or username" maxlength="500" required>
     </label>
     <app-login-email-validation [loginForm]="this.loginForm" [form]="this.form"></app-login-email-validation>
     <app-login-username-validation [loginForm]="this.loginForm" [form]="this.form"></app-login-username-validation>
+
     <label>
-      <input class="login-input" type="password" formControlName="password" placeholder="Password" required>
+      <input class="login-input" type="password" formControlName="password" placeholder="Password" maxlength="500" required>
     </label>
-    <app-password-validation [loginForm]="this.loginForm" [form]="this.form"  ></app-password-validation>
-    <div #error class="error"></div>
-<!--    <app-server-validation-error-message #error></app-server-validation-error-message>-->
-<!--    <app-submit-button [buttonValue]="'Log In'"></app-submit-button>-->
-    <app-login-submit-button [buttonValue]="'Log In'"></app-login-submit-button>
-    <app-form-text [type]="'login'" [linkTo]="'registration'"></app-form-text>
+    <app-password-validation [loginForm]="this.loginForm" [form]="this.form"></app-password-validation>
+
+    <app-server-validation-error-message [messageText]="errorMessage"></app-server-validation-error-message>
+
+    <button class="solid-button submit-button">Log In</button>
+
+    <app-form-text [type]="'login'" [linkTo]="'registration'" [additionalLink]="'forgot-password'"></app-form-text>
   </form>
 </section>
 

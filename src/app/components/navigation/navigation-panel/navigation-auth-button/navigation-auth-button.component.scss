@@ -1,15 +1,18 @@
-@use '../../../../../assets/styles/colors' as colors;
-
-.header-nav-auth-button{
-  border: 2px colors.$nav-auth-button-color solid;
-  border-radius: 13px;
-  width: 150px;
-  height: 35px;
-  font-family: "Book Antiqua", monospace;;
-  font-size: 16px;
-  &:hover {
-    cursor: pointer;
-    color: colors.$white;
-    background-color: colors.$nav-auth-button-color;
-  }
-}
+//@use '../../../../../assets/styles/colors' as colors;
+//
+//.header-nav-auth-button {
+//  border: 2px colors.$greeny solid;
+//  background-color: transparent;
+//  border-radius: 13px;
+//  width: 150px;
+//  //width: 11.67vw;
+//  height: 35px;
+//  font-family: "Book Antiqua", monospace;;
+//  font-size: 16px;
+//
+//  &:hover {
+//    cursor: pointer;
+//    color: colors.$white;
+//    background-color: colors.$greeny;
+//  }
+//}

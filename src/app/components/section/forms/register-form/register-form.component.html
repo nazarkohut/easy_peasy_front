@@ -2,27 +2,28 @@
   <app-form-header [type]="'registration'"></app-form-header>
   <form class="register-form" [formGroup]="form" (submit)="onSubmit()">
     <label>
-      <input class="register-input" type="email" formControlName="email" placeholder="Email" required>
+      <input class="register-input" type="email" formControlName="email" placeholder="Email" maxlength="500" required>
     </label>
-    <app-email-validation [form]="form"></app-email-validation>
+    <app-email-validation [form]="form" class="register-validation-error"></app-email-validation>
 
     <label>
-      <input class="register-input" type="text" formControlName="username" placeholder="Username" required>
+      <input class="register-input" type="text" formControlName="username" placeholder="Username" maxlength="500" required>
     </label>
-    <div class="wrapper">
-      <app-register-text-validation [form]="form" [fieldName]="'username'"></app-register-text-validation>
-    </div>
+    <app-register-text-validation [form]="form" [fieldName]="'username'"
+                                  class="register-validation-error"></app-register-text-validation>
 
-    <label class="first-last-name-label">
-      <input class="register-input first-last-name" type="text" formControlName="first_name" placeholder="First name"
-             required>
-    </label>
+    <div class="first-last-name-wrapper">
+      <label class="first-last-name-label">
+        <input class="register-input first-last-name" type="text" formControlName="first_name" placeholder="First name"
+               maxlength="300" required>
+      </label>
 
-    <label class="first-last-name-label">
-      <input class="register-input first-last-name" type="text" formControlName="last_name" placeholder="Last name"
-             required>
-    </label>
-    <div class="wrapper">
+      <label class="first-last-name-label">
+        <input class="register-input first-last-name" type="text" formControlName="last_name" placeholder="Last name"
+               maxlength="300" required>
+      </label>
+
+
       <div class="first-last-name-errors-wrapper">
         <div class="first-last-name-error-wrapper first-name-error-wrapper">
           <app-register-text-validation [form]="form" [fieldName]="'first_name'"></app-register-text-validation>
@@ -33,24 +34,23 @@
       </div>
     </div>
 
-
     <label>
-      <input class="register-input" type="password" formControlName="password" placeholder="Password" required>
+      <input class="register-input" type="password" formControlName="password" placeholder="Password" maxlength="500" required>
     </label>
-    <app-password-validation [loginForm]="this.form" [form]="this.form"></app-password-validation>
+    <app-password-validation [loginForm]="this.form" [form]="this.form"
+                             class="register-validation-error"></app-password-validation>
 
     <label>
       <input class="register-input" type="password" formControlName="confirm_password" placeholder="Confirm password"
-             required>
+             maxlength="500" required>
     </label>
-    <div class="wrapper">
-      <app-confirm-password-validation [form]="form"></app-confirm-password-validation>
-    </div>
-    <div #error class="error"></div>
+    <app-confirm-password-validation [form]="form" class="register-validation-error"></app-confirm-password-validation>
 
+    <app-server-validation-error-message [messageText]="errorMessage"
+                                         class="register-validation-error"></app-server-validation-error-message>
 
     <app-auth-terms-warning [termsLink]="'/terms'" [policyLink]="'/privacy-policy'"></app-auth-terms-warning>
-    <app-registration-submit-button [buttonValue]="'Sign Up'"></app-registration-submit-button>
+    <button class="solid-button submit-button">Sign Up</button>
     <app-form-text [type]="'registration'" [linkTo]="'login'"></app-form-text>
   </form>
 </section>

@@ -1,0 +1,8 @@
+<section class="form-wrapper">
+  <app-form-header [type]="'account_activation'"></app-form-header>
+  <div class="account-activation">
+    <img src="../../../../../assets/images/logos/congrats-logo.png" alt="" class="congrats-logo">
+    <p class="message">Congrats! Your account was successfully activated! </p>
+    <app-navigation-auth-button *ngFor="let item of redirectButton" [navData]=item></app-navigation-auth-button>
+  </div>
+</section>

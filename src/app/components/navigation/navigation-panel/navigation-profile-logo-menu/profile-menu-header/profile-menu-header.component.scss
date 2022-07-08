@@ -1,0 +1,39 @@
+.profile-menu-header {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin-bottom: 10px;
+}
+
+.profile-menu-logo {
+  width: 80px;
+  height: 80px;
+}
+
+.profile-menu-header-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-menu-header-text {
+  margin: 0;
+}
+
+.full-name {
+  font-size: 22px;
+  font-family: "Book Antiqua", monospace;
+  display: inline-block;
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.username {
+  opacity: 50%;
+  display: inline-block;
+  width: 75px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

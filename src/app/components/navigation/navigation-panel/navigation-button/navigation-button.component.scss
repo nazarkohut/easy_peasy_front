@@ -1,10 +1,11 @@
 @use '../../../../../assets/styles/colors' as colors;
 
-.header-nav-button{
+.header-nav-button {
   border-color: transparent;
   background-color: transparent;
   font-family: "Bookman Old Style", monospace;
-  font-size: 20px;
+  font-size: 22px;
+  //font-size: 1.712vw;
 
   &:hover {
     cursor: pointer;
