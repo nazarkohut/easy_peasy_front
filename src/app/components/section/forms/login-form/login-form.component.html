@@ -2,13 +2,13 @@
   <app-form-header [type]="'login'"></app-form-header>
   <form class="login-form" [formGroup]="form" (submit)="onSubmit()">
     <label>
-      <input class="login-input" type="email" formControlName="email_or_username" placeholder="Email or username" maxlength="500" required>
+      <input class="underlined-input login-input" type="email" formControlName="email_or_username" placeholder="Email or username" maxlength="500" required>
     </label>
     <app-login-email-validation [loginForm]="this.loginForm" [form]="this.form"></app-login-email-validation>
     <app-login-username-validation [loginForm]="this.loginForm" [form]="this.form"></app-login-username-validation>
 
     <label>
-      <input class="login-input" type="password" formControlName="password" placeholder="Password" maxlength="500" required>
+      <input class="underlined-input login-input" type="password" formControlName="password" placeholder="Password" maxlength="500" required>
     </label>
     <app-password-validation [loginForm]="this.loginForm" [form]="this.form"></app-password-validation>
 
