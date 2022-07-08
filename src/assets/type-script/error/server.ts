@@ -1,16 +1,7 @@
-// export function getServerErrorText(errorValue: any): string {
-//   console.log(errorValue);
-//   if (typeof (errorValue) === 'string') {
-//     return errorValue
-//   } else if (typeof (errorValue) === 'object') {
-//     return errorValue?.[0]
-//   }
-//   return String();
-// }
 let maximalNumberOfNestedObjects = 10;
 
+/** This function does recursion for `getServerErrorText` function */
 function getServerErrorHelper(errorValue: any, numberOfIterations = 0): string {
-  // console.log("here", typeof(errorValue))
   if (numberOfIterations >= maximalNumberOfNestedObjects) { // make this part normal
     return String();
   }
@@ -19,10 +10,8 @@ function getServerErrorHelper(errorValue: any, numberOfIterations = 0): string {
   }
   if (typeof (errorValue) === 'object') {
     const values = Object.keys(errorValue).map(key => errorValue[key]);
-    // console.log("values", values)
     let text: string = String();
     for (let value of values) {
-      // console.log("value", value)
       text = getServerErrorHelper(value, numberOfIterations + 1);
       if (text) {
         return text;
@@ -34,9 +23,12 @@ function getServerErrorHelper(errorValue: any, numberOfIterations = 0): string {
 
 }
 
+/** This function is used to parse nested objects(usually server error response).
+ * It will get error only if number of nested objects is not greater than maximalNumberOfNestedObjects variable  */
 export function getServerErrorText(errorValue: any): string {
-  // console.log(errorValue);
-  // Obj
+  /**
+   * @return parsed error from nested object like [{message: [error]}]
+   * */
   if (typeof (errorValue) === 'string') {
     return errorValue;
   } else if (typeof (errorValue) === 'object') {

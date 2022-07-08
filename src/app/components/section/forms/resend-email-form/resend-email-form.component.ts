@@ -23,6 +23,7 @@ export class ResendEmailFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.errorMessage = '';
     console.log(this.form.value)
     if (this.form.valid) {
       this.auth.resendActivation(this.form.value).subscribe({
