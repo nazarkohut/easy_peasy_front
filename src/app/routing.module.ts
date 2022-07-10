@@ -18,6 +18,9 @@ import {
   ResendAccountActivationEmailComponent
 } from "./components/pages/resend-account-activation-email/resend-account-activation-email.component";
 import {ResetPasswordComponent} from "./components/pages/reset-password/reset-password.component";
+import {
+  ResetPasswordConfirmComponent
+} from "./components/pages/reset-password-confirm/reset-password-confirm.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -35,6 +38,7 @@ const routes: Routes = [
   {path: 'tests', component: TestsComponent, canActivate: [AuthGuard]},
   {path: 'resend/email', component: ResendAccountActivationEmailComponent},
   {path: 'forgot-password', component: ResetPasswordComponent},
+  {path: 'email/reset/confirm/:uid/:token', component: ResetPasswordConfirmComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

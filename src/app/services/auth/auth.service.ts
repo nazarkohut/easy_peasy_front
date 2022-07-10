@@ -35,7 +35,13 @@ export interface ResendAccountActivation {
 }
 
 export interface ResetPassword{
+  email: string
+}
 
+export interface ResetPasswordConfirm{
+  uid: string,
+  token: string,
+  new_password: string
 }
 
 @Injectable({
@@ -76,5 +82,9 @@ export class AuthService {
 
   resetPassword(resetPasswordData: ResetPassword){
     return this.http.post(backendUrl + '/auth/users/reset_password/', resetPasswordData);
+  }
+
+  resetPasswordConfirm(resetPasswordConfirmData: ResetPasswordConfirm){
+    return this.http.post(backendUrl + '/auth/users/reset_password_confirm/', resetPasswordConfirmData)
   }
 }

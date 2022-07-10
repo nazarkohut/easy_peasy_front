@@ -23,6 +23,7 @@ export class ResetPasswordFormComponent implements OnInit {
 
   onSubmit(){
     this.errorMessage = '';
+    this.form.markAllAsTouched();
     if (this.form.valid){
       this.authService.resetPassword(this.form.value).subscribe({
         next: (data) => {

@@ -57,6 +57,8 @@ import { ResendEmailFormComponent } from './components/section/forms/resend-emai
 import { ResetPasswordComponent } from './components/pages/reset-password/reset-password.component';
 import { ResetPasswordFormComponent } from './components/section/forms/reset-password-form/reset-password-form.component';
 import {MatIconModule} from "@angular/material/icon";
+import { ResetPasswordConfirmComponent } from './components/pages/reset-password-confirm/reset-password-confirm.component';
+import { ResetPasswordConfirmFormComponent } from './components/section/forms/reset-password-confirm-form/reset-password-confirm-form.component';
 
 @NgModule({
     declarations: [
@@ -100,6 +102,8 @@ import {MatIconModule} from "@angular/material/icon";
         ResendEmailFormComponent,
         ResetPasswordComponent,
         ResetPasswordFormComponent,
+        ResetPasswordConfirmComponent,
+        ResetPasswordConfirmFormComponent,
     ],
   imports: [
     BrowserModule,
