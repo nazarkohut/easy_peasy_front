@@ -27,10 +27,9 @@ export class ResetPasswordFormComponent implements OnInit {
     if (this.form.valid){
       this.authService.resetPassword(this.form.value).subscribe({
         next: (data) => {
-          this.router.navigateByUrl('url_to_reset_password_success') // have to create this url and change its naming
+          this.router.navigateByUrl('email-send/success')
         },
         error: (err) =>{
-
           this.errorMessage = getServerErrorText(err?.error);
         }
       })

@@ -9,10 +9,21 @@ import {DomSanitizer} from "@angular/platform-browser";
 })
 export class AppComponent {
   title = 'EasyPeasyFront';
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer){
+
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+    // latter I will have to create loop through array of objects
     matIconRegistry.addSvgIcon(
       'forgot-password-sad-smile',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/ForgotPasswordSadSmile.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/forgot-password-sad-smile.svg')
     );
+    matIconRegistry.addSvgIcon(
+      'email-sent-success-happy-smile',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/email-sent-success-happy-smile.svg')
+    );
+    matIconRegistry.addSvgIcon(
+      'email-sent-success-happy-reverse-smile',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/email-sent-success-happy-reverse-smile.svg')
+    )
+
   }
 }

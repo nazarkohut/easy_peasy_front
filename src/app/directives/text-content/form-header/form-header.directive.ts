@@ -12,7 +12,8 @@ export class FormHeaderDirective {
     'account_activation': 'Congratulations',
     'resend_email_form': "Re-send Account Activation Email",
     'reset-password': "Forgot password",
-    'reset-password-confirm': "Set new password"
+    'reset-password-confirm': "Set new password",
+    'email-sent-success': 'Congratulations'
   }
 
   constructor(private el: ElementRef) {

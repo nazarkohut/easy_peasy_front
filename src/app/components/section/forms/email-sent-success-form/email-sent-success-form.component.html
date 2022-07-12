@@ -1,0 +1,15 @@
+<section class="form-wrapper">
+  <app-form-header [type]="'email-sent-success'"></app-form-header>
+  <div class="confirm-account-wrapper">
+    <ng-container *ngIf="switch">
+      <mat-icon class="smiles" svgIcon="email-sent-success-happy-smile" (click)="onSmileClick()"></mat-icon>
+    </ng-container>
+
+    <ng-container *ngIf="!switch">
+      <mat-icon class="smiles" svgIcon="email-sent-success-happy-reverse-smile" (click)="onSmileClick()"></mat-icon>
+    </ng-container>
+
+    <p class="message">Congrats! We have sent you an email. Please, check your inbox and spam folders and follow our instructions.</p>
+    <button class="greeny-stroked-button email-sent-success-button" *ngFor="let item of redirectButton" (click)="this.router.navigateByUrl(item.link)"> {{item.text}}</button>
+  </div>
+</section>

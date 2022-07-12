@@ -31,7 +31,7 @@ export class ResendEmailFormComponent implements OnInit {
         next: (data) => {
           console.log("data:", data);
           this.errorMessage = '';
-          this.router.navigateByUrl('confirm-account'); // create new page for this
+          this.router.navigateByUrl('email-send/success');
         },
         error: (err)=>{
           console.log("err", err);
