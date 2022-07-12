@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {getPasswordValidators} from "../../../../../assets/type-script/validators/fields/password";
 import {AuthService, ResetPasswordConfirm} from "../../../../services/auth/auth.service";
 import {getServerErrorText} from "../../../../../assets/type-script/error/server";
@@ -20,7 +20,7 @@ export class ResetPasswordConfirmFormComponent implements OnInit {
   params: { uid: string, token: string } = {uid: '', token: ''};
   errorMessage: string = '';
 
-  constructor(private activeRoute: ActivatedRoute, private authService: AuthService) {
+  constructor(private router: Router, private activeRoute: ActivatedRoute, private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class ResetPasswordConfirmFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.errorMessage = ''; // this thing get form to dragging, so consider something different
+    this.errorMessage = '';
     this.form.markAllAsTouched();
     console.log(this.form);
     if (this.form.valid) {
@@ -42,7 +42,7 @@ export class ResetPasswordConfirmFormComponent implements OnInit {
       console.log(requestData)
       this.authService.resetPasswordConfirm(requestData).subscribe({
         next: (data) => {
-          alert('Ok');
+          this.router.navigateByUrl('login'); // temporary;
         },
         error: (err) => {
           this.errorMessage = getServerErrorText(err?.error);

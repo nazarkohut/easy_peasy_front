@@ -93,6 +93,8 @@ import {
 import {
   EmailSentSuccessFormComponent
 } from "./components/section/forms/email-sent-success-form/email-sent-success-form.component";
+import { PasswordChangedSuccessComponent } from './components/pages/password-changed-success/password-changed-success.component';
+import { PasswordChangedSuccessFormComponent } from './components/section/forms/password-changed-success-form/password-changed-success-form.component';
 
 @NgModule({
   declarations: [
@@ -140,6 +142,8 @@ import {
     ResetPasswordConfirmFormComponent,
     EmailSentSuccessComponent,
     EmailSentSuccessFormComponent,
+    PasswordChangedSuccessComponent,
+    PasswordChangedSuccessFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,9 @@ import {
 import {
   EmailSentSuccessComponent
 } from "./components/pages/email-sent-success/email-sent-success.component";
+import {
+  PasswordChangedSuccessComponent
+} from "./components/pages/password-changed-success/password-changed-success.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -43,6 +46,7 @@ const routes: Routes = [
   {path: 'forgot-password', component: ResetPasswordComponent},
   {path: 'email/reset/confirm/:uid/:token', component: ResetPasswordConfirmComponent},
   {path: 'email-send/success', component: EmailSentSuccessComponent},
+  {path: 'password-changed/success', component: PasswordChangedSuccessComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

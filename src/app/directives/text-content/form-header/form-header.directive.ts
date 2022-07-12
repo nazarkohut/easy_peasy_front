@@ -13,7 +13,8 @@ export class FormHeaderDirective {
     'resend_email_form': "Re-send Account Activation Email",
     'reset-password': "Forgot password",
     'reset-password-confirm': "Set new password",
-    'email-sent-success': 'Congratulations'
+    'email-sent-success': 'Congratulations',
+    'password-changed': 'Password changed successfully'
   }
 
   constructor(private el: ElementRef) {
