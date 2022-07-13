@@ -8,6 +8,7 @@ import {getFirstNameValidators} from "../../../../../assets/type-script/validato
 import {AuthService} from "../../../../services/auth/auth.service";
 import {Router} from "@angular/router";
 import {getServerErrorText} from "../../../../../assets/type-script/error/server";
+import {checkCompareValuesOnChange} from "../../../../../assets/type-script/validators/fields/field-listeners";
 
 @Component({
   selector: 'app-register-form',
@@ -34,12 +35,13 @@ export class RegisterFormComponent implements OnInit {
       if (!value) {
         return null;
       }
-      let areEqual = this.form.value?.password === value;
+      let areEqual = control.parent?.value.password === value;
       return !areEqual ? {passwordDoesNotMatch: true} : null;
     }
   }
 
   ngOnInit(): void {
+    checkCompareValuesOnChange(this.form);
   }
 
   onSubmit() {
@@ -60,5 +62,4 @@ export class RegisterFormComponent implements OnInit {
       });
     console.log(this.form);
   }
-
 }
