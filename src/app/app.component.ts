@@ -14,15 +14,15 @@ export class AppComponent {
     // latter I will have to create loop through array of objects
     matIconRegistry.addSvgIcon(
       'forgot-password-sad-smile',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/forgot-password-sad-smile.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/smiles/forgot-password-sad-smile.svg')
     );
     matIconRegistry.addSvgIcon(
       'email-sent-success-happy-smile',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/email-sent-success-happy-smile.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/smiles/email-sent-success-happy-smile.svg')
     );
     matIconRegistry.addSvgIcon(
       'email-sent-success-happy-reverse-smile',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/email-sent-success-happy-reverse-smile.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/smiles/email-sent-success-happy-reverse-smile.svg')
     )
 
   }

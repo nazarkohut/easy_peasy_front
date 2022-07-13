@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {RedirectButton} from "../../../../../assets/type-script/UI-interfaces/redirect-button";
 
 @Component({
   selector: 'app-activate-account-form',
@@ -6,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['../auth-form.scss', './activate-account-form.component.scss']
 })
 export class ActivateAccountFormComponent implements OnInit {
-  redirectButton: Array<{ text: string, link: string }> = [{text: 'Back to login', link: 'login'}];
+  redirectButton: Array<RedirectButton> = [{text: 'Back to login', link: 'login'}];
 
   constructor() { }
 

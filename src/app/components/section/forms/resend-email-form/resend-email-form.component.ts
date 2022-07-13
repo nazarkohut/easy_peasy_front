@@ -33,12 +33,11 @@ export class ResendEmailFormComponent implements OnInit {
           this.errorMessage = '';
           this.router.navigateByUrl('email-send/success');
         },
-        error: (err)=>{
+        error: (err) => {
           console.log("err", err);
           this.errorMessage = getServerErrorText(err?.error);
         }
       })
     }
   }
-
 }

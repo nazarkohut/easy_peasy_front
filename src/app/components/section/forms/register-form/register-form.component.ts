@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {getPasswordValidators} from "../../../../../assets/type-script/validators/fields/password";
 import {getEmailValidators} from "../../../../../assets/type-script/validators/fields/email";
 import {getUsernameValidators} from "../../../../../assets/type-script/validators/fields/username";
@@ -8,7 +8,10 @@ import {getFirstNameValidators} from "../../../../../assets/type-script/validato
 import {AuthService} from "../../../../services/auth/auth.service";
 import {Router} from "@angular/router";
 import {getServerErrorText} from "../../../../../assets/type-script/error/server";
-import {checkCompareValuesOnChange} from "../../../../../assets/type-script/validators/fields/field-listeners";
+import {
+  updateConfirmFieldOnChange
+} from "../../../../../assets/type-script/validators/fields/listeners/field-listeners";
+import {getConfirmPasswordValidators} from "../../../../../assets/type-script/validators/fields/confirm_password";
 
 @Component({
   selector: 'app-register-form',
@@ -22,32 +25,22 @@ export class RegisterFormComponent implements OnInit {
     first_name: new FormControl('', getFirstNameValidators()),
     last_name: new FormControl('', getLastNameValidators()),
     password: new FormControl('', getPasswordValidators()),
-    confirm_password: new FormControl('', [Validators.required, this.confirmPasswordValidator()])
+    confirm_password: new FormControl('', getConfirmPasswordValidators())
   });
+
   errorMessage: string = '';
 
   constructor(private router: Router, private auth: AuthService) {
   }
 
-  confirmPasswordValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const value = control.value;
-      if (!value) {
-        return null;
-      }
-      let areEqual = control.parent?.value.password === value;
-      return !areEqual ? {passwordDoesNotMatch: true} : null;
-    }
-  }
-
   ngOnInit(): void {
-    checkCompareValuesOnChange(this.form);
+    updateConfirmFieldOnChange(this.form);
   }
 
   onSubmit() {
     this.errorMessage = String();
     this.form.markAllAsTouched();
-    if (this.form.invalid){
+    if (this.form.invalid) {
       return
     }
     this.auth.register(this.form.value).subscribe(

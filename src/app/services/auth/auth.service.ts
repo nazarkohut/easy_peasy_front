@@ -25,7 +25,7 @@ export interface AccessRefreshTokens {
   refresh: string
 }
 
-export interface AccountActivation {
+export interface AuthUrl {
   uid: string,
   token: string
 }
@@ -34,11 +34,11 @@ export interface ResendAccountActivation {
   email: string
 }
 
-export interface ResetPassword{
+export interface ResetPassword {
   email: string
 }
 
-export interface ResetPasswordConfirm{
+export interface ResetPasswordConfirm {
   uid: string,
   token: string,
   new_password: string
@@ -57,8 +57,7 @@ export class AuthService {
     return this.http.post<AccessRefreshTokens>(backendUrl + '/auth/users/login/', loginData)
   }
 
-  register(registrationData:
-             { email: string, username: string, first_name: string, last_name: string, password: string }) {
+  register(registrationData: RegistrationData) {
     return this.http.post(backendUrl + '/auth/users/', registrationData)
   }
 
@@ -72,19 +71,19 @@ export class AuthService {
     }, httpOptions);
   }
 
-  activateAccount(activationData: AccountActivation) {
+  activateAccount(activationData: AuthUrl) {
     return this.http.post(backendUrl + '/auth/users/activation/', activationData, httpOptions)
   }
 
-  resendActivation(resendActivationData: ResendAccountActivation){
+  resendActivation(resendActivationData: ResendAccountActivation) {
     return this.http.post(backendUrl + '/auth/users/resend_activation/', resendActivationData)
   }
 
-  resetPassword(resetPasswordData: ResetPassword){
+  resetPassword(resetPasswordData: ResetPassword) {
     return this.http.post(backendUrl + '/auth/users/reset_password/', resetPasswordData);
   }
 
-  resetPasswordConfirm(resetPasswordConfirmData: ResetPasswordConfirm){
+  resetPasswordConfirm(resetPasswordConfirmData: ResetPasswordConfirm) {
     return this.http.post(backendUrl + '/auth/users/reset_password_confirm/', resetPasswordConfirmData)
   }
 }

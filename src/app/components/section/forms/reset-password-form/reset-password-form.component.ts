@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {getEmailValidators} from "../../../../../assets/type-script/validators/fields/email";
 import {AuthService} from "../../../../services/auth/auth.service";
@@ -16,25 +16,24 @@ export class ResetPasswordFormComponent implements OnInit {
   });
   errorMessage: string = '';
 
-  constructor(private router: Router, public authService: AuthService) { }
+  constructor(private router: Router, public authService: AuthService) {
+  }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
+  onSubmit() {
     this.errorMessage = '';
     this.form.markAllAsTouched();
-    if (this.form.valid){
+    if (this.form.valid) {
       this.authService.resetPassword(this.form.value).subscribe({
         next: (data) => {
           this.router.navigateByUrl('email-send/success')
         },
-        error: (err) =>{
+        error: (err) => {
           this.errorMessage = getServerErrorText(err?.error);
         }
       })
     }
-
   }
-
 }

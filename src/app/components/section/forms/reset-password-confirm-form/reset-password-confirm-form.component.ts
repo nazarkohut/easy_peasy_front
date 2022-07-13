@@ -1,9 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {getPasswordValidators} from "../../../../../assets/type-script/validators/fields/password";
-import {AuthService, ResetPasswordConfirm} from "../../../../services/auth/auth.service";
+import {AuthService, AuthUrl, ResetPasswordConfirm} from "../../../../services/auth/auth.service";
 import {getServerErrorText} from "../../../../../assets/type-script/error/server";
+import {getConfirmPasswordValidators} from "../../../../../assets/type-script/validators/fields/confirm_password";
+import {
+  updateConfirmFieldOnChange
+} from "../../../../../assets/type-script/validators/fields/listeners/field-listeners";
 
 @Component({
   selector: 'app-reset-password-confirm-form',
@@ -11,13 +15,12 @@ import {getServerErrorText} from "../../../../../assets/type-script/error/server
   styleUrls: ['../auth-form.scss', './reset-password-confirm-form.component.scss']
 })
 export class ResetPasswordConfirmFormComponent implements OnInit {
-  form: FormGroup = new FormGroup({ // this form may be changed later in order
-    // to not create new object and use this one instead
+  form: FormGroup = new FormGroup({
     password: new FormControl('', getPasswordValidators(8)),
-    confirm_password: new FormControl('', [Validators.required, this.confirmPasswordValidator()]), // add validators
+    confirm_password: new FormControl('', getConfirmPasswordValidators()),
   });
 
-  params: { uid: string, token: string } = {uid: '', token: ''};
+  params: AuthUrl = {uid: '', token: ''};
   errorMessage: string = '';
 
   constructor(private router: Router, private activeRoute: ActivatedRoute, private authService: AuthService) {
@@ -25,8 +28,9 @@ export class ResetPasswordConfirmFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe(params => {
-      this.params = params as { uid: string, token: string };
+      this.params = params as AuthUrl;
     });
+    updateConfirmFieldOnChange(this.form);
   }
 
   formResetPasswordConfirmData(): ResetPasswordConfirm {
@@ -36,13 +40,12 @@ export class ResetPasswordConfirmFormComponent implements OnInit {
   onSubmit() {
     this.errorMessage = '';
     this.form.markAllAsTouched();
-    console.log(this.form);
     if (this.form.valid) {
       let requestData = this.formResetPasswordConfirmData();
       console.log(requestData)
       this.authService.resetPasswordConfirm(requestData).subscribe({
         next: (data) => {
-          this.router.navigateByUrl('login'); // temporary;
+          this.router.navigateByUrl('password-changed/success');
         },
         error: (err) => {
           this.errorMessage = getServerErrorText(err?.error);
@@ -50,16 +53,4 @@ export class ResetPasswordConfirmFormComponent implements OnInit {
       });
     }
   }
-
-  confirmPasswordValidator(): ValidatorFn { // this validator is inside registration(so it is better to make it general)
-    return (control: AbstractControl): ValidationErrors | null => {
-      const value = control.value;
-      if (!value) {
-        return null;
-      }
-      let areEqual = this.form.value?.password === value;
-      return !areEqual ? {passwordDoesNotMatch: true} : null;
-    }
-  }
-
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {RedirectButton} from "../../../../../assets/type-script/UI-interfaces/redirect-button";
 
 @Component({
   selector: 'app-password-changed-success-form',
@@ -7,7 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['../auth-form.scss', './password-changed-success-form.component.scss']
 })
 export class PasswordChangedSuccessFormComponent implements OnInit {
-  redirectButton: Array<{text: string, link: string}> = [{text: "Back to login", link: "login"}]
+  redirectButton: Array<RedirectButton> = [{text: "Back to login", link: "login"}]
   switch: boolean = true;
   constructor(public router: Router) { }
 
