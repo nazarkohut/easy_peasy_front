@@ -24,15 +24,22 @@ function isAlphaNumeric(s: string) {
   return true;
 }
 
-function isNumeric(code: number) {
+export function isNumeric(code: number) {
   return (code >= getASCII('0') && code <= getASCII('9'));
 }
 
 function isAlpha(code: number) {
-  return (code >= getASCII('A') && code <= getASCII('Z')) ||
-    (code >= getASCII('a') && code <= getASCII('z'));
+  return isUpperCase(code) || isLowerCase(code);
 }
 
 export function getASCII(ch: string): number {
   return ch.charCodeAt(0);
+}
+
+export function isLowerCase(code: number): boolean{
+  return (code >= getASCII('a') && code <= getASCII('z'))
+}
+
+export function isUpperCase(code: number): boolean{
+  return (code >= getASCII('A') && code <= getASCII('Z'))
 }

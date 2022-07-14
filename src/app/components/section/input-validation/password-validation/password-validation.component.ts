@@ -26,9 +26,18 @@ export class PasswordValidationComponent implements OnInit {
     } else if (this.loginForm.get('password')?.hasError('minlength')) {
       return `Password must be at least ${this.loginForm.get('password')?.errors?.['minlength']?.['requiredLength']}
       characters long, your password have ${this.loginForm.get('password')?.errors?.['minlength']?.['actualLength']} characters`;
-    } else if (this.loginForm.get('password')?.hasError('maxlength')){
-      return `Password must be at least ${this.loginForm.get('password')?.errors?.['maxlength']?.['requiredLength']}
+    } else if (this.loginForm.get('password')?.hasError('maxlength')) {
+      return `Password must be less than ${this.loginForm.get('password')?.errors?.['maxlength']?.['requiredLength']}
       characters long, your password have ${this.loginForm.get('password')?.errors?.['maxlength']?.['actualLength']} characters`
+    } else if (this.loginForm.get('password')?.hasError('strongPassword')) {
+      let strongPasswordError = this.loginForm.get('password')?.errors?.['strongPassword']
+      if (strongPasswordError?.['containsLowerCaseChar'] || strongPasswordError?.['containsUpperCaseChar']) {
+        return 'Password should contain both lower and upper case letters.'
+      } else if (strongPasswordError?.['containsNumber']) {
+        return 'Password should have at least 1 number'
+      } else if (strongPasswordError?.['containsSpecialChar']) {
+        return 'Password should contain at least 1 special character like \'%, *, /, @, ! \' '
+      }
     }
     return '';
   }

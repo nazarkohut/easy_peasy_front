@@ -8,6 +8,7 @@ import {getConfirmPasswordValidators} from "../../../../../assets/type-script/va
 import {
   updateConfirmFieldOnChange
 } from "../../../../../assets/type-script/validators/fields/listeners/field-listeners";
+import {strongPasswordValidator} from "../../../../../assets/type-script/validators/custom/strong-password-validator";
 
 @Component({
   selector: 'app-reset-password-confirm-form',
@@ -16,7 +17,7 @@ import {
 })
 export class ResetPasswordConfirmFormComponent implements OnInit {
   form: FormGroup = new FormGroup({
-    password: new FormControl('', getPasswordValidators(8)),
+    password: new FormControl('', [...getPasswordValidators(8), strongPasswordValidator()]),
     confirm_password: new FormControl('', getConfirmPasswordValidators()),
   });
 
@@ -27,7 +28,9 @@ export class ResetPasswordConfirmFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // alert(this.activeRoute.params)
     this.activeRoute.params.subscribe(params => {
+      // alert(params)
       this.params = params as AuthUrl;
     });
     updateConfirmFieldOnChange(this.form);
