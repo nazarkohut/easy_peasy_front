@@ -44,7 +44,7 @@ export class ProblemService {
   }
 
   getAllProblemsTopics() {
-    return this.http.get(backendUrl + '/topics/', httpOptions);
+    return this.http.get(backendUrl + '/topic/', httpOptions);
   }
 
   getProblemsSortedByTags(ids: Array<number>) {
@@ -59,6 +59,6 @@ export class ProblemService {
   }
 
   getSubtopicProblems(id: string){
-    return this.http.get<[SubtopicProblems]>(backendUrl + '/topics/subtopic/' + id, httpOptions);
+    return this.http.get<[SubtopicProblems]>(backendUrl + '/topic/subtopic/' + id, httpOptions);
   }
 }

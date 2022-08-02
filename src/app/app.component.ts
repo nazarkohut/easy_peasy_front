@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'EasyPeasyFront';
 
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
-    // latter I will have to create loop through array of objects
+    // later I will have to create loop through array of objects
     matIconRegistry.addSvgIcon(
       'forgot-password-sad-smile',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logos/svg/smiles/forgot-password-sad-smile.svg')

@@ -85,19 +85,34 @@ export class ProblemsComponent implements OnInit {
       this.form.controls['tags'].enable();
       this.form.controls['subtopics'].disable();
     } else {
-      this.form.controls['tags'].disable();
-      this.form.controls['subtopics'].enable();
+      let subtopics = this.form.value.topics.sub_topics;
+      let currentData: any = [];
+      subtopics.forEach((subtopic: any) => {
+        if (subtopic.problems.length !== 0) {
+          // console.log("problems", subtopic.problems)
+          currentData.push(...subtopic.problems)
+        }
+      })
+      this.problemsActiveData = currentData;
+      console.log("problemsActiveData", this.problemsActiveData)
+      if (this.form.controls['subtopics'].enabled){
+        this.clearSubtopics();
+      } else{
+        this.form.controls['tags'].disable();
+        this.form.controls['subtopics'].enable();
+      }
     }
   }
 
   onSubtopicSelect() {
     const subtopic = this.form.value.subtopics;
     if (subtopic && subtopic.length !== 0) {
-      this.problem.getSubtopicProblems(this.form.value.subtopics).subscribe(data => {
+      this.problem.getSubtopicProblems(subtopic).subscribe(data => {
         console.log("data", data)
         data.forEach(problem => {
           this.problemsActiveData = problem.problems;
         })
+        console.log("ActiveData:", this.problemsActiveData)
       })
     } else {
       this.problemsActiveData = this.problemsData;
@@ -130,6 +145,10 @@ export class ProblemsComponent implements OnInit {
     this.form.controls['subtopics'].setValue('');
     this.form.controls['tags'].enable()
     this.form.controls['subtopics'].disable()
+  }
+
+  clearSubtopics(){
+    this.form.controls['subtopics'].setValue('');
   }
 
 }

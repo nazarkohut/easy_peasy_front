@@ -16,7 +16,7 @@
     <mat-label>Subtopics</mat-label>
     <mat-select [formControlName]="'subtopics'">
 <!--      Perhaps, I will add multiple option to subtopics soon. Just have to think about it.-->
-<!--      have to change sub_topic to subtopic(backend)-->
+<!--      have to change sub_topic to subtopic(backend) -->
       <mat-option *ngFor="let subtopicObj of form.value.topics?.sub_topics" [value]="subtopicObj.id" (click)="onSubtopicSelect()">{{subtopicObj.name}}</mat-option>
     </mat-select>
   </mat-form-field>
