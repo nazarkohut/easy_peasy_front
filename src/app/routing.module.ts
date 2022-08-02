@@ -27,6 +27,7 @@ import {
 import {
   PasswordChangedSuccessComponent
 } from "./components/pages/password-changed-success/password-changed-success.component";
+import {ChangePasswordComponent} from "./components/pages/change-password/change-password.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -47,6 +48,7 @@ const routes: Routes = [
   {path: 'email/reset/confirm/:uid/:token', component: ResetPasswordConfirmComponent},
   {path: 'email-send/success', component: EmailSentSuccessComponent},
   {path: 'password-changed/success', component: PasswordChangedSuccessComponent},
+  {path: 'change-password', component: ChangePasswordComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

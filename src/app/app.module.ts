@@ -95,6 +95,7 @@ import {
 } from "./components/section/forms/email-sent-success-form/email-sent-success-form.component";
 import { PasswordChangedSuccessComponent } from './components/pages/password-changed-success/password-changed-success.component';
 import { PasswordChangedSuccessFormComponent } from './components/section/forms/password-changed-success-form/password-changed-success-form.component';
+import { ChangePasswordComponent } from './components/pages/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -144,6 +145,7 @@ import { PasswordChangedSuccessFormComponent } from './components/section/forms/
     EmailSentSuccessFormComponent,
     PasswordChangedSuccessComponent,
     PasswordChangedSuccessFormComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

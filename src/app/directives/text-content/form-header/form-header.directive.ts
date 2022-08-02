@@ -14,7 +14,8 @@ export class FormHeaderDirective {
     'reset-password': "Forgot password",
     'reset-password-confirm': "Set new password",
     'email-sent-success': 'Congratulations',
-    'password-changed': 'Password changed successfully'
+    'password-changed': 'Password changed successfully',
+    'change-password': "Change password"
   }
 
   constructor(private el: ElementRef) {
